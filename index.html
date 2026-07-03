@@ -47,6 +47,19 @@
             border-bottom: 2px solid #ffffff;
             padding-bottom: 15px;
             transition: border-color 0.4s ease;
+            gap: 15px;
+        }
+
+        .top-bar-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Ak máš tlačidlo ako odkaz <a>, nech zdedí štýl menu tlačidla */
+        a.menu-btn {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
         }
 
         .menu-btn {
@@ -291,15 +304,22 @@
     <div class="container">
 
         <nav class="top-bar">
-            <button class="menu-btn" onclick="toggleLanguage()">
-                <span class="sk">SK / EN</span>
-                <span class="en">EN / SK</span>
-            </button>
+            <a href="portfolio.html" target="_blank" class="menu-btn">
+                <span class="sk">FOTO - PORTFÓLIO</span>
+                <span class="en">PHOTO - PORTFOLIO</span>
+            </a>
             
-            <button class="menu-btn" onclick="toggleTheme()" id="themeBtn">
-                <span class="dark-icon">🌙</span>
-                <span class="light-icon" style="display: none;">☀️</span>
-            </button>
+            <div class="top-bar-controls">
+                <button class="menu-btn" onclick="toggleLanguage()">
+                    <span class="sk">SK / EN</span>
+                    <span class="en">EN / SK</span>
+                </button>
+                
+                <button class="menu-btn" onclick="toggleTheme()" id="themeBtn">
+                    <span class="dark-icon">🌙</span>
+                    <span class="light-icon" style="display: none;">☀️</span>
+                </button>
+            </div>
         </nav>
         
         <div class="top-section">
