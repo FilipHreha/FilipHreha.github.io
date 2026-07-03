@@ -174,7 +174,7 @@
         }
         h2 { 
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: 700;
             margin-top: 0;
             margin-bottom: 25px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -191,8 +191,22 @@
             transition: border-color 0.4s ease;
         }
         .timeline-date { font-size: 0.9rem; opacity: 0.7; display: block; margin-bottom: 5px; }
-        .timeline-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
+        .timeline-title { font-weight: 700; font-size: 1.3rem; margin-bottom: 5px; color: #ffffff }
         .timeline-desc { margin: 0; }
+
+        /* --- ŠTÝL PRE ZAMESTNÁVATEĽA --- */
+        .timeline-employer {
+            font-size: 1rem;
+            color: #dededee5; /* Jemná sivá farba pre tmavý režim */
+            font-weight: 600; /* Mierne tučné písmo */
+            margin-top: -3px; /* Mierne pritiahnutie k názvu pozície */
+            margin-bottom: 8px; /* Odstup od dlhého textu pod ním */
+        }
+
+/* Úprava farby pre svetlý režim */
+body.light-mode .timeline-employer {
+    color: #636366; /* Tmavšia sivá pre čitateľnosť na bielom pozadí */
+}
 
         /* Vyskakovacia hláška */
         .toast {
@@ -283,30 +297,30 @@
             </h2>
             <div class="timeline-item">
                 <span class="timeline-date">
-                    <span class="sk">Rok - Rok</span>
-                    <span class="en">Year - Year</span>
+                    <span class="sk">2022 - Súčastnosť</span>
+                    <span class="en">2022 - Present</span>
                 </span>
                 <div class="timeline-title">
-                    <span class="sk">Vysoká škola</span>
-                    <span class="en">University</span>
+                    <span class="sk">Fakulta elektrotechniky a informatiky STU v Bratislave</span>
+                    <span class="en">Faculty of Electrical Engineering and Information Technology STU in Bratislava</span>
                 </div>
                 <p class="timeline-desc">
-                    <span class="sk">Názov odboru, fakulta, mesto.</span>
-                    <span class="en">Degree name, faculty, city.</span>
+                    <span class="sk">Inteligentné technológie a automobilová mechatronika</span>
+                    <span class="en">Intelligent Technologies and Automotive Mechatronics</span>
                 </p>
             </div>
             <div class="timeline-item">
                 <span class="timeline-date">
-                    <span class="sk">Rok - Rok</span>
-                    <span class="en">Year - Year</span>
+                    <span class="sk">2019 - 2022</span>
+                    <span class="en">2019 - 2022</span>
                 </span>
                 <div class="timeline-title">
-                    <span class="sk">Stredná škola</span>
-                    <span class="en">High School</span>
+                    <span class="sk">Stredná priemyselná škola strojnícka, Duklianska 1, Prešov</span>
+                    <span class="en">Secondary School of Mechanical Engineering, Duklianska 1, Prešov</span>
                 </div>
                 <p class="timeline-desc">
-                    <span class="sk">Názov školy, zameranie.</span>
-                    <span class="en">School name, focus.</span>
+                    <span class="sk">Mechatronika</span>
+                    <span class="en">Mechatronics</span>
                 </p>
             </div>
         </section>
@@ -318,16 +332,19 @@
             </h2>
             <div class="timeline-item">
                 <span class="timeline-date">
-                    <span class="sk">2024 - Súčasnosť</span>
-                    <span class="en">2024 - Present</span>
+                    <span class="sk">2023 - 2025</span>
+                    <span class="en">2023 - 2025</span>
                 </span>
                 <div class="timeline-title">
-                    <span class="sk">Slobodný umelec / Fotograf</span>
-                    <span class="en">Freelance Photographer</span>
+                    <span class="sk">Asistent predaja</span>
+                    <span class="en">Sales Assistant</span>
+                </div>
+                <div class="timeline-employer">
+                        Neposlušný psík
                 </div>
                 <p class="timeline-desc">
-                    <span class="sk">Krátky popis toho, čo robíš a na aké projekty sa zameriavaš.</span>
-                    <span class="en">A short description of what you do and the projects you focus on.</span>
+                    <span class="sk">Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom, pravidelné dopĺňanie tovaru a asistencia pri inventúrach</span>
+                    <span class="en">Selling products, communicating with customers, operating the POS system, regular restocking of goods, and assisting with inventory checks.</span>
                 </p>
             </div>
         </section>
@@ -339,14 +356,48 @@
             </h2>
             <div class="timeline-item">
                 <span class="timeline-date">
-                    <span class="sk">Rok získania</span>
-                    <span class="en">Year acquired</span>
+                    <span class="sk">16.07.2025</span>
+                    <span class="en">16.07.2025</span>
                 </span>
                 <div class="timeline-title">
-                    <span class="sk">Názov certifikátu 1</span>
-                    <span class="en">Certification name 1</span>
+                    <span class="sk">Google AI Essentials</span>
+                    <span class="en">Google AI Essentials</span>
                 </div>
+                    <a href="https://coursera.org/verify/specialization/GHWEGGEWGFLR" target="_blank" class="cert-link">
+                    <span class="sk">Overiť certifikát</span>
+                    <span class="en">Verify certificate</span>
+                    </a>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">
+                    <span class="sk">17.07.2025</span>
+                    <span class="en">17.07.2025</span>
+                    </span>
+                <div class="timeline-title">
+                    <span class="sk">Google Prompting Essentials</span>
+                    <span class="en">Google Prompting Essentials</span>
+                </div>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/SAWRCWJHYDNN" target="_blank" class="cert-link">
+                    <span class="sk">Overiť certifikát</span>
+                    <span class="en">Verify certificate</span>
+                    </a>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">
+                    <span class="sk">6.6.2023</span>
+                    <span class="en">6.6.2023</span>
+                    </span>
+                <div class="timeline-title">
+                    <span class="sk">§21 Elektrotechnik</span>
+                    <span class="en">§21 Electrotechnician</span>
+                    </div>
+                    <span class="sk">Stredná priemyselná škola strojnícka, Duklianska 1, Prešov</span>
+                    <span class="en">Secondary School of Mechanical Engineering, Duklianska 1, Prešov</span>
+                </div>
+                </div>
+                
             </div>
+            
         </section>
 
     </div>
