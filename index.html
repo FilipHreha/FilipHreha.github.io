@@ -225,21 +225,41 @@
             transform: translateY(-2px);
         }
 
-/* Úprava pre svetlý režim */
-body.light-mode .skill-tag {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #111111;
-}
+        /* Úprava pre svetlý režim */
+        body.light-mode .skill-tag {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #111111;
+        }
 
-body.light-mode .skill-tag:hover {
-    background: rgba(0, 0, 0, 0.08);
-    border-color: rgba(0, 0, 0, 0.3);
-}
-/* Úprava farby pre svetlý režim */
-body.light-mode .timeline-employer {
-    color: #636366; /* Tmavšia sivá pre čitateľnosť na bielom pozadí */
-}
+        body.light-mode .skill-tag:hover {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+        /* Úprava farby pre svetlý režim */
+        body.light-mode .timeline-employer {
+            color: #636366; /* Tmavšia sivá pre čitateľnosť na bielom pozadí */
+        }
+
+        /* Odkazy pre certifikáty */
+        .cert-link {
+            display: inline-block;
+            margin-top: 5px;
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .cert-link:hover {
+            color: #c084fc;
+            text-decoration: underline;
+        }
+        body.light-mode .cert-link {
+            color: #6d28d9;
+        }
+        body.light-mode .cert-link:hover {
+            color: #4c1d95;
+        }
 
         /* Vyskakovacia hláška */
         .toast {
@@ -292,7 +312,7 @@ body.light-mode .timeline-employer {
                 <h1>Filip Hreha</h1>
                 
                 <div class="contact-buttons">
-                    <a href="mailto:filip.hreha@example.com" class="btn" onclick="copyToClipboard('filiphreha6@gmail.com', event)">
+                    <a href="mailto:filiphreha6@gmail.com" class="btn" onclick="copyToClipboard('filiphreha6@gmail.com', event)">
                         <span class="btn-title">Mail</span>
                         <span class="btn-sub">filiphreha6@gmail.com</span>
                     </a>
@@ -330,7 +350,7 @@ body.light-mode .timeline-employer {
             </h2>
             <div class="timeline-item">
                 <span class="timeline-date">
-                    <span class="sk">2022 - Súčastnosť</span>
+                    <span class="sk">2022 - Súčasnosť</span>
                     <span class="en">2022 - Present</span>
                 </span>
                 <div class="timeline-title">
@@ -373,7 +393,7 @@ body.light-mode .timeline-employer {
                     <span class="en">Sales Assistant</span>
                 </div>
                 <div class="timeline-employer">
-                        Neposlušný psík
+                    Neposlušný psík
                 </div>
                 <p class="timeline-desc">
                     <span class="sk">Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom, pravidelné dopĺňanie tovaru a asistencia pri inventúrach</span>
@@ -390,7 +410,7 @@ body.light-mode .timeline-employer {
                     <span class="en">Website Administrator</span>
                 </div>
                 <div class="timeline-employer">
-                        Doglife
+                    Doglife
                 </div>
                 <p class="timeline-desc">
                     <span class="sk">Komplexná správa, údržba, pravidelná aktualizácia webových stránok, tvorba grafického dizajnu a vizuálnych materiálov</span>
@@ -407,7 +427,7 @@ body.light-mode .timeline-employer {
                     <span class="en">Warehouse Operative</span>
                 </div>
                 <div class="timeline-employer">
-                        Neposlušný psík
+                    Neposlušný psík
                 </div>
                 <p class="timeline-desc">
                     <span class="sk">Príjem tovaru, evidencia a výdaj tovaru, kontrola dodacích listov, presné vychystávanie objednávok, manipulácia so skladovými zásobami, udržiavanie poriadku v skladových priestoroch</span>
@@ -430,174 +450,170 @@ body.light-mode .timeline-employer {
                     <span class="sk">Google AI Essentials</span>
                     <span class="en">Google AI Essentials</span>
                 </div>
-                    <a href="https://coursera.org/verify/specialization/GHWEGGEWGFLR" target="_blank" class="cert-link">
+                <a href="https://coursera.org/verify/specialization/GHWEGGEWGFLR" target="_blank" class="cert-link">
                     <span class="sk">Overiť certifikát</span>
                     <span class="en">Verify certificate</span>
-                    </a>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">
+                </a>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">
                     <span class="sk">17.07.2025</span>
                     <span class="en">17.07.2025</span>
-                    </span>
+                </span>
                 <div class="timeline-title">
                     <span class="sk">Google Prompting Essentials</span>
                     <span class="en">Google Prompting Essentials</span>
                 </div>
-                    <a href="https://www.coursera.org/account/accomplishments/specialization/SAWRCWJHYDNN" target="_blank" class="cert-link">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/SAWRCWJHYDNN" target="_blank" class="cert-link">
                     <span class="sk">Overiť certifikát</span>
                     <span class="en">Verify certificate</span>
-                    </a>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">
+                </a>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">
                     <span class="sk">6.6.2023</span>
                     <span class="en">6.6.2023</span>
-                    </span>
+                </span>
                 <div class="timeline-title">
                     <span class="sk">§21 Elektrotechnik</span>
                     <span class="en">§21 Electrotechnician</span>
-                    </div>
+                </div>
+                <p class="timeline-desc">
                     <span class="sk">Stredná priemyselná škola strojnícka, Duklianska 1, Prešov</span>
                     <span class="en">Secondary School of Mechanical Engineering, Duklianska 1, Prešov</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">
+                </p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">
                     <span class="sk">13.2.2026 - 13.2.2027</span>
                     <span class="en">13.2.2026 - 13.2.2027</span>
-                    </span>
+                </span>
                 <div class="timeline-title">
                     <span class="sk">Certifikácia Google Ads pre Obsahovú sieť</span>
                     <span class="en">Google Ads Display</span>
                 </div>
-                    <a href="https://skillshop.credential.net/d22fb1de-d909-4b4a-8350-45937b85b3f1#acc.13wMDojr" target="_blank" class="cert-link">
+                <a href="https://skillshop.credential.net/d22fb1de-d909-4b4a-8350-45937b85b3f1#acc.13wMDojr" target="_blank" class="cert-link">
                     <span class="sk">Overiť certifikát</span>
                     <span class="en">Verify certificate</span>
-                    </a>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">
+                </a>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">
                     <span class="sk">16.2.2026 - 16.2.2027</span>
                     <span class="en">16.2.2026 - 16.2.2027</span>
-                    </span>
+                </span>
                 <div class="timeline-title">
                     <span class="sk">Certifikácia Google Ads - Kreatíva</span>
-                    <span class="en">Google Ads Creativey</span>
+                    <span class="en">Google Ads Creative</span>
                 </div>
-                    <a href="https://skillshop.credential.net/184a60f3-71c0-4cd0-94ee-b5f5d1d4c952#acc.c4JD73SE" target="_blank" class="cert-link">
+                <a href="https://skillshop.credential.net/184a60f3-71c0-4cd0-94ee-b5f5d1d4c952#acc.c4JD73SE" target="_blank" class="cert-link">
                     <span class="sk">Overiť certifikát</span>
                     <span class="en">Verify certificate</span>
-                    </a>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">
+                </a>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">
                     <span class="sk">17.2.2026 - 17.2.2027</span>
                     <span class="en">17.2.2026 - 17.2.2027</span>
-                    </span>
+                </span>
                 <div class="timeline-title">
                     <span class="sk">Certifikácia Google Ads pre videoreklamu</span>
                     <span class="en">Google Ads Video</span>
                 </div>
-                    <a href="https://skillshop.credential.net/4a9976f7-0242-4d6d-9221-eb37db421629#acc.ZhTimdBU" target="_blank" class="cert-link">
+                <a href="https://skillshop.credential.net/4a9976f7-0242-4d6d-9221-eb37db421629#acc.ZhTimdBU" target="_blank" class="cert-link">
                     <span class="sk">Overiť certifikát</span>
                     <span class="en">Verify certificate</span>
-                    </a>
-                </div>
-                </div>
-                
+                </a>
             </div>
-            
         </section>
 
         <section>
-    <h2>
-        <span class="sk">Zručnosti</span>
-        <span class="en">Skills</span>
-    </h2>
-    <div class="skills-container">
-        <span class="skill-tag">Adobe Photoshop - 90%</span>
-        <span class="skill-tag">Adobe Lightroom - 70%</span>
-        <span class="skill-tag">Adobe Premiere Pro - 85%</span>
-        <span class="skill-tag">HTML & CSS - 50%</span>
-        <span class="skill-tag">AutoCAD - 50%</span>
-        <span class="skill-tag">SolidEdge - 80%</span>
-        <span class="skill-tag">MATLAB - 50%</span>
-        <span class="skill-tag">C++ - 50%</span>
-        
-        <span class="skill-tag">
-            <span class="sk">Produktová fotografia</span>
-            <span class="en">Product Photography</span>
-        </span>
-        <span class="skill-tag">
-            <span class="sk">Grafický dizajn</span>
-            <span class="en">Graphic Design</span>
-        </span>
-        <span class="skill-tag">
-            <span class="sk">Správa webu</span>
-            <span class="en">Web Administration</span>
-        </span>
-    </div>
-</section>
+            <h2>
+                <span class="sk">Zručnosti</span>
+                <span class="en">Skills</span>
+            </h2>
+            <div class="skills-container">
+                <span class="skill-tag">Adobe Photoshop - 90%</span>
+                <span class="skill-tag">Adobe Lightroom - 70%</span>
+                <span class="skill-tag">Adobe Premiere Pro - 85%</span>
+                <span class="skill-tag">HTML & CSS - 50%</span>
+                <span class="skill-tag">AutoCAD - 50%</span>
+                <span class="skill-tag">SolidEdge - 80%</span>
+                <span class="skill-tag">MATLAB - 50%</span>
+                <span class="skill-tag">C++ - 50%</span>
+                
+                <span class="skill-tag">
+                    <span class="sk">Produktová fotografia</span>
+                    <span class="en">Product Photography</span>
+                </span>
+                <span class="skill-tag">
+                    <span class="sk">Grafický dizajn</span>
+                    <span class="en">Graphic Design</span>
+                </span>
+                <span class="skill-tag">
+                    <span class="sk">Správa webu</span>
+                    <span class="en">Web Administration</span>
+                </span>
+            </div>
+        </section>
 
-<section>
-    <h2>
-        <span class="sk">Ocenenia</span>
-        <span class="en">Awards & Achievements</span>
-    </h2>
-    
-    <div class="timeline-item">
-        <span class="timeline-date">
-            <span class="sk">14.4.2023</span>
-            <span class="en">14.4.2023</span>
-        </span>
-        
-        <div class="timeline-title">
-            <span class="sk">Víťaz - Siemens Young Generation Award</span>
-            <span class="en">Winner - Siemens Young Generation Award</span>
-        </div>
-        
-        <div class="timeline-employer">
-            <span class="sk">Siemens</span>
-            <span class="en">Siemens</span>
-        </div>
-        
-        <p class="timeline-desc">
-            <span class="sk">Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty
-(PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou
-témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch.</span>
-            <span class="en">A nationwide high school competition focused on problem-solving using programmable logic controller (PLC) programming languages, with an emphasis on practical applications in industrial automation. Organized annually, with a changing professional theme reflecting current trends in engineering and control systems.</span>
-        </p>
-    </div>
-</section>
+        <section>
+            <h2>
+                <span class="sk">Ocenenia</span>
+                <span class="en">Awards & Achievements</span>
+            </h2>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">
+                    <span class="sk">14.4.2023</span>
+                    <span class="en">14.4.2023</span>
+                </span>
+                
+                <div class="timeline-title">
+                    <span class="sk">Víťaz - Siemens Young Generation Award</span>
+                    <span class="en">Winner - Siemens Young Generation Award</span>
+                </div>
+                
+                <div class="timeline-employer">
+                    <span class="sk">Siemens</span>
+                    <span class="en">Siemens</span>
+                </div>
+                
+                <p class="timeline-desc">
+                    <span class="sk">Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty (PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch.</span>
+                    <span class="en">A nationwide high school competition focused on problem-solving using programmable logic controller (PLC) programming languages, with an emphasis on practical applications in industrial automation. Organized annually, with a changing professional theme reflecting current trends in engineering and control systems.</span>
+                </p>
+            </div>
+        </section>
 
-<section>
-    <h2>
-        <span class="sk">Organizácie</span>
-        <span class="en">Organizations</span>
-    </h2>
-    
-    <div class="timeline-item">
-        <span class="timeline-date">
-            <span class="sk">2025 - Súčasnosť</span>
-            <span class="en">2025 - Present</span>
-        </span>
-        
-        <div class="timeline-title">
-            <span class="sk">Študentský parlament elektrotechnikov a informatikov</span>
-            <span class="en">Student Parliament</span>
-        </div>
-        
-        <div class="timeline-employer">
-            <span class="sk">Člen PR komisie</span>
-            <span class="en">Member of the PR department</span>
-        </div>
-        
-        <p class="timeline-desc">
-            <span class="sk">Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov</span>
-            <span class="en">Active participation in parliament operations, organizing school and extracurricular events, contributing to the improvement of the school environment, website management, event photography, creating graphic materials </span>
-        </p>
-    </div>
-</section>
+        <section>
+            <h2>
+                <span class="sk">Organizácie</span>
+                <span class="en">Organizations</span>
+            </h2>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">
+                    <span class="sk">2025 - Súčasnosť</span>
+                    <span class="en">2025 - Present</span>
+                </span>
+                
+                <div class="timeline-title">
+                    <span class="sk">Študentský parlament elektrotechnikov a informatikov</span>
+                    <span class="en">Student Parliament</span>
+                </div>
+                
+                <div class="timeline-employer">
+                    <span class="sk">Člen PR komisie</span>
+                    <span class="en">PR Committee Member</span>
+                </div>
+                
+                <p class="timeline-desc">
+                    <span class="sk">Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov</span>
+                    <span class="en">Active participation in parliament operations, organizing school and extracurricular events, contributing to the improvement of the school environment, website management, event photography, creating graphic materials</span>
+                </p>
+            </div>
+        </section>
     </div>
 
     <div id="toast" class="toast">
