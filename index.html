@@ -203,6 +203,12 @@
             border-left: 1px solid rgba(255, 255, 255, 0.2);
             transition: border-color 0.4s ease;
         }
+
+        /* --- NOVÝ EFEKT PRE SVIETIACU ČIARU --- */
+        .timeline-item:hover {
+            border-left: 2px solid #ffffff;
+            padding-left: 19px; /* Kompenzácia o 1px, aby text neodskočil kvôli hrubšej čiare */
+        }
         .timeline-date { font-size: 0.9rem; opacity: 0.7; display: block; margin-bottom: 5px; }
         .timeline-title { font-weight: 700; font-size: 1.3rem; margin-bottom: 5px; color: #ffffff }
         .timeline-desc { margin: 0; }
@@ -243,6 +249,10 @@
             background: rgba(0, 0, 0, 0.03);
             border-color: rgba(0, 0, 0, 0.1);
             color: #111111;
+        }
+
+        body.light-mode .timeline-item:hover {
+            border-left-color: #111111; /* V svetlom režime zasvieti na tmavo */
         }
 
         body.light-mode .skill-tag:hover {
@@ -358,8 +368,10 @@
                 <span class="en">About Me</span>
             </h2>
             <p>
-                <span class="sk">Vitajte na mojom online priestore. Venujem sa zachytávaniu momentov cez objektív, vizuálnej tvorbe a objavovaniu nových technológií. Tento web slúži ako môj digitálny životopis.</span>
-                <span class="en">Welcome to my online space. I am dedicated to capturing moments through the lens, visual creation, and exploring new technologies. This website serves as my digital resume.</span>
+                <span class="sk">Študent automobilovej mechatroniky na FEI STU, ktorý kombinuje exaktné technické vzdelanie s digitálnymi a kreatívnymi zručnosťami. Vyznačujem sa analytickým myslením, zodpovedným prístupom k úlohám a zmyslom pre organizáciu. Taktiež sa dokážem rýchlo učiť a adaptovať na nové technológie. Hľadám prostredie, kde môžem rásť a prispieť svojou flexibilitou. 
+
+</span>
+                <span class="en">An Automotive Mechatronics student at FEI STU who combines an exact technical education with digital and creative skills. I have analytical thinking, a responsible approach to tasks, and a sense of organization. I can also learn quickly and adapt to new technologies. I am looking for an environment where I can grow and contribute with my flexibility.</span>
             </p>
         </section>
 
