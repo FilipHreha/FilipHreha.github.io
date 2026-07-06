@@ -23,7 +23,7 @@
             position: relative;
         }
 
-        /* --- JAZYKOVÝ PREPÍNAČ (TOP BAR) --- */
+        /* --- JAZYKOVÝ PREPÍNAČ --- */
         .top-bar {
             display: flex;
             justify-content: flex-end;
@@ -49,14 +49,8 @@
             border-color: #ffffff;
         }
 
-        /* --- PREPÍNANIE JAZYKOV (SK/EN skrývanie) --- */
-        body.en-mode .sk {
-            display: none !important;
-        }
-
-        body:not(.en-mode) .en {
-            display: none !important;
-        }
+        body.en-mode .sk { display: none !important; }
+        body:not(.en-mode) .en { display: none !important; }
 
         /* --- ÚVODNÝ PREDSLOV --- */
         header {
@@ -115,47 +109,118 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* --- GALÉRIA --- */
+        /* --- FINÁLNA MASONRY GALÉRIA (BEZ DIER) --- */
         .folder-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            transition: max-height 0.6s cubic-bezier(0, 1, 0, 1);
             padding: 0 20px;
         }
 
         .folder-content.open {
-            max-height: 2000px;
+            max-height: 8000px; /* Dostatočná rezerva pre všetky rozbalené fotky */
             padding: 10px 20px 30px 20px;
-            transition: max-height 0.5s ease-in-out;
+            transition: max-height 0.6s ease-in-out;
         }
 
         .category-folder.active .folder-icon {
             transform: rotate(180deg);
         }
 
+        /* Aktivácia stĺpcového rozloženia */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            display: block;
+            column-count: 3; /* Tri stĺpce na desktope */
+            column-gap: 20px;
         }
 
+        /* Jednotlivé karty s fotkami */
         .gallery-item {
             position: relative;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px; /* Rozostup pod fotkou */
+            break-inside: avoid; /* Zabezpečí, že sa karta nerozdelí na polovicu medzi stĺpcami */
             overflow: hidden;
             border-radius: 4px;
-            aspect-ratio: 3 / 2;
             background-color: #111111;
+            cursor: pointer;
         }
 
+        /* Zrušené fixné pomery, fotka určuje výšku sama */
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.03);
+        }
+
+        /* --- RESPONSIVITA (Pre tablety a mobily) --- */
+        @media (max-width: 900px) {
+            .gallery-grid {
+                column-count: 2; /* Na tablete 2 stĺpce */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                column-count: 1; /* Na mobile 1 stĺpec pod sebou */
+            }
+        }
+
+        /* --- MODÁLNE OKNO (LIGHTBOX PRE ZVÄČŠENIE FOTKY) --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.show .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 200;
+            cursor: pointer;
+            transition: color 0.2s;
+            user-select: none;
+        }
+
+        .lightbox-close:hover {
+            color: #cccccc;
         }
 
         /* --- TLAČIDLO HORE --- */
@@ -249,32 +314,15 @@
             <div class="category-folder">
                 <button class="folder-header" onclick="toggleFolder(this)">
                     <span>
-                        <span class="sk">ĽUDIA</span>
-                        <span class="en">PEOPLE</span>
+                        <span class="sk">ĽUDIA / PORTRÉTY</span>
+                        <span class="en">PEOPLE / PORTRAITS</span>
                     </span>
                     <span class="folder-icon">▼</span>
                 </button>
                 <div class="folder-content">
                     <div class="gallery-grid">
-                        <div class="gallery-item"><img src="ludia1.jpg" alt="Človek 1"></div>
-                        <div class="gallery-item"><img src="ludia2.jpg" alt="Človek 2"></div>
-                        <div class="gallery-item"><img src="ludia3.jpg" alt="Človek 3"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="category-folder">
-                <button class="folder-header" onclick="toggleFolder(this)">
-                    <span>
-                        <span class="sk">PRODUKTY</span>
-                        <span class="en">PRODUCTS</span>
-                    </span>
-                    <span class="folder-icon">▼</span>
-                </button>
-                <div class="folder-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item"><img src="produkt1.jpg" alt="Produkt 1"></div>
-                        <div class="gallery-item"><img src="produkt2.jpg" alt="Produkt 2"></div>
+                        <div class="gallery-item"><img src="assets/ludia1.jpg" alt="People 1"></div>
+                        <div class="gallery-item"><img src="assets/ludia2.jpg" alt="People 2"></div>
                     </div>
                 </div>
             </div>
@@ -283,15 +331,20 @@
 
     </div>
 
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed view">
+    </div>
+
     <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
 
     <script>
-        // Funkcia na prepínanie jazyka (SK / EN)
+        // Prepínanie jazykov
         function toggleLanguage() {
             document.body.classList.toggle('en-mode');
         }
 
-        // Funkcia na otváranie / zatváranie priečinkov
+        // Otváranie / zatváranie priečinkov
         function toggleFolder(headerElement) {
             const folder = headerElement.parentElement;
             const content = headerElement.nextElementSibling;
@@ -300,9 +353,24 @@
             content.classList.toggle('open');
         }
 
-        // Sledovanie skrolovania pre Back to Top tlačidlo
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        // FUNKCIE PRE LIGHTBOX (Zväčšovanie fotiek po kliknutí)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
 
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightboxImg.src = img.src;
+                lightbox.classList.add('show');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+        }
+
+        // Skrolovanie hore
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 scrollTopBtn.style.opacity = "1";
@@ -314,10 +382,7 @@
         };
 
         function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     </script>
 
