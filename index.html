@@ -313,10 +313,21 @@ pointer-events: none;
 .top-section { flex-direction: column; text-align: center; }
 .btn { text-align: center; }
 }
+  #scrollProgressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%; /* JavaScript ju bude dynamicky zväčšovať */
+    height: 4px; /* Hrúbka linky */
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe); /* Pekný prechod z fialovej do svetlejšej */
+    z-index: 9999; /* Zabezpečí, že bude vždy navrchu nad všetkým */
+    transition: width 0.1s ease-out;
+}
 </style>
 </head>
 
 <body class="lang-sk">
+  <div id="scrollProgressBar"></div>
 
 <div class="container">
 
@@ -724,6 +735,13 @@ darkIcon.style.display = 'inline';
 lightIcon.style.display = 'none';
 }
 }
+  window.addEventListener("scroll", () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    
+    document.getElementById("scrollProgressBar").style.width = scrolled + "%";
+});
 </script>
 
 </body>
