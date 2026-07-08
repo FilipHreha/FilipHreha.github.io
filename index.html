@@ -323,6 +323,33 @@ pointer-events: none;
     z-index: 9999; /* Zabezpečí, že bude vždy navrchu nad všetkým */
     transition: width 0.1s ease-out;
 }
+
+  #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ffffff;
+            color: #111111;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+            z-index: 1000;
+        }
+
+        #scrollTopBtn:hover {
+            transform: translateY(-3px);
+            background-color: #e5e5e5;
+        }
 </style>
 </head>
 
@@ -694,7 +721,7 @@ Neposlušný psík
 <span class="sk">Skopírované!</span>
 <span class="en">Copied!</span>
 </div>
-
+<button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
 <script>
 // Funkcia na skopírovanie textu do schránky
 function copyToClipboard(text, event) {
@@ -742,6 +769,21 @@ lightIcon.style.display = 'none';
     
     document.getElementById("scrollProgressBar").style.width = scrolled + "%";
 });
+
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.opacity = "1";
+                scrollTopBtn.style.visibility = "visible";
+            } else {
+                scrollTopBtn.style.opacity = "0";
+                scrollTopBtn.style.visibility = "hidden";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
 </script>
 
 </body>
