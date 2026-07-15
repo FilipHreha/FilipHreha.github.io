@@ -72,6 +72,82 @@
             line-height: 1.6;
         }
 
+        /* --- FOTO & VIDEO TECHNIKA --- */
+        .tech-section {
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 40px; 
+            margin-bottom: 60px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .tech-section:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(108, 92, 231, 0.5);
+            box-shadow: 0 0 25px rgba(108, 92, 231, 0.2);
+        }
+
+        .tech-section h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .tech-card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tech-list li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            opacity: 0.85;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .tech-list li::before {
+            content: "•";
+            color: #6c5ce7;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+
         /* --- PRIEČINKY / KATEGÓRIE --- */
         .category-folder {
             margin-bottom: 25px;
@@ -109,7 +185,7 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* --- FINÁLNA MASONRY GALÉRIA (BEZ DIER) --- */
+        /* --- FINÁLNA MASONRY GALÉRIA --- */
         .folder-content {
             max-height: 0;
             overflow: hidden;
@@ -118,7 +194,7 @@
         }
 
         .folder-content.open {
-            max-height: 8000px; /* Dostatočná rezerva pre všetky rozbalené fotky */
+            max-height: 8000px;
             padding: 10px 20px 30px 20px;
             transition: max-height 0.6s ease-in-out;
         }
@@ -127,27 +203,24 @@
             transform: rotate(180deg);
         }
 
-        /* Aktivácia stĺpcového rozloženia */
         .gallery-grid {
             display: block;
-            column-count: 3; /* Tri stĺpce na desktope */
+            column-count: 3;
             column-gap: 20px;
         }
 
-        /* Jednotlivé karty s fotkami */
         .gallery-item {
             position: relative;
             display: block;
             width: 100%;
-            margin-bottom: 20px; /* Rozostup pod fotkou */
-            break-inside: avoid; /* Zabezpečí, že sa karta nerozdelí na polovicu medzi stĺpcami */
+            margin-bottom: 20px;
+            break-inside: avoid;
             overflow: hidden;
             border-radius: 4px;
             background-color: #111111;
             cursor: pointer;
         }
 
-        /* Zrušené fixné pomery, fotka určuje výšku sama */
         .gallery-item img {
             width: 100%;
             height: auto;
@@ -159,20 +232,20 @@
             transform: scale(1.03);
         }
 
-        /* --- RESPONSIVITA (Pre tablety a mobily) --- */
+        /* --- RESPONSIVITA --- */
         @media (max-width: 900px) {
             .gallery-grid {
-                column-count: 2; /* Na tablete 2 stĺpce */
+                column-count: 2;
             }
         }
 
         @media (max-width: 600px) {
             .gallery-grid {
-                column-count: 1; /* Na mobile 1 stĺpec pod sebou */
+                column-count: 1;
             }
         }
 
-        /* --- MODÁLNE OKNO (LIGHTBOX PRE ZVÄČŠENIE FOTKY) --- */
+        /* --- MODÁLNE OKNO --- */
         .lightbox {
             position: fixed;
             top: 0;
@@ -250,130 +323,10 @@
             transform: translateY(-3px);
             background-color: #e5e5e5;
         }
-
-        .tech-section {
-    background: rgba(255, 255, 255, 0.02); 
-    padding: 40px; 
-    margin-bottom: 40px; 
-    border-radius: 12px; 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
-}
-
-.tech-section:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(108, 92, 231, 0.5);
-    box-shadow: 0 0 25px rgba(108, 92, 231, 0.2);
-}
-
-/* Mriežka pre kategórie techniky */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.tech-card {
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.tech-card:hover {
-    transform: translateY(-3px);
-}
-
-.tech-card h3 {
-    margin-top: 0;
-    font-size: 1.4rem;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.tech-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.tech-list li {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-    opacity: 0.85;
-    position: relative;
-    padding-left: 15px;
-}
-
-/* Malá fialová bodka pred každou položkou */
-.tech-list li::before {
-    content: "•";
-    color: #6c5ce7;
-    font-weight: bold;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
-}
     </style>
 </head>
 <body>
-    <!-- SEKCIA: FOTO & VIDEO TECHNIKA -->
-<section class="tech-section">
-    <h2>
-        <span class="sk">Technické vybavenie</span>
-        <span class="en">My Gear & Equipment</span>
-    </h2>
-    <p>
-        <span class="sk">Na fotenie a natáčanie videí používam profesionálnu techniku, ktorá zaručuje maximálnu ostrosť, skvelý dynamický rozsah a stabilný výstup za každých svetelných podmienok:</span>
-        <span class="en">For photography and video production, I use professional equipment that guarantees maximum sharpness, great dynamic range, and stable output under any lighting conditions:</span>
-    </p>
 
-    <div class="tech-grid">
-        <!-- 1. Kamery / Telo -->
-        <div class="tech-card">
-            <h3>📷 <span class="sk">Kamery</span><span class="en">Cameras</span></h3>
-            <ul class="tech-list">
-                <li>Sony Alpha / Canon EOS R <span style="opacity: 0.5; font-size: 0.8rem;">(Doplň svoj model)</span></li>
-                <li><span class="sk">Záložné telo</span><span class="en">Backup body</span></li>
-                <li>4K Video 60fps / 10-bit</li>
-            </ul>
-        </div>
-
-        <!-- 2. Objektívy -->
-        <div class="tech-card">
-            <h3>🔍 <span class="sk">Objektívy</span><span class="en">Lenses</span></h3>
-            <ul class="tech-list">
-                <li>24-70mm f/2.8 <span class="sk">(Univerzál)</span><span class="en">(Zoom)</span></li>
-                <li>50mm f/1.8 <span class="sk">(Portréty / Detail)</span><span class="en">(Portraits)</span></li>
-                <li>85mm f/1.4 <span class="sk">(Svetelný pevný)</span><span class="en">(Prime)</span></li>
-            </ul>
-        </div>
-
-        <!-- 3. Stabilizácia a doplnky -->
-        <div class="tech-card">
-            <h3>🎬 <span class="sk">Stabilizácia / Rig</span><span class="en">Gimbals & Rigs</span></h3>
-            <ul class="tech-list">
-                <li>DJI Ronin <span class="sk">(3-osový stabilizátor)</span><span class="en">(3-axis gimbal)</span></li>
-                <li><span class="sk">Statív s fluidnou hlavou</span><span class="en">Fluid head tripod</span></li>
-                <li>ND Filtre <span class="sk">(pre plynulé video)</span><span class="en">(for smooth video)</span></li>
-            </ul>
-        </div>
-
-        <!-- 4. Svetlo a Zvuk -->
-        <div class="tech-card">
-            <h3>💡 <span class="sk">Svetlo & Zvuk</span><span class="en">Light & Audio</span></h3>
-            <ul class="tech-list">
-                <li>Røde Wireless <span class="sk">(Bezdrôtový mikrofón)</span><span class="en">(Wireless mic)</span></li>
-                <li>LED RGB <span class="sk">externé svetlo</span><span class="en">external light</span></li>
-                <li><span class="sk">Smerový mikrofón</span><span class="en">Shotgun microphone</span></li>
-            </ul>
-        </div>
-    </div>
-</section>
     <div class="container">
         
         <nav class="top-bar">
@@ -395,6 +348,60 @@
                 Hey, welcome to my website. I focus primarily on automotive photography, but I have no problem with other styles or genres – I’m happy to shoot different projects based on your needs. If you are interested in a photoshoot or need a photographer for your project, just send me a message and we can work something out.
             </p>
         </header>
+
+        <!-- SEKCIA: FOTO & VIDEO TECHNIKA (Teraz bezpečne vnútri kontajnera) -->
+        <section class="tech-section">
+            <h2>
+                <span class="sk">Technické vybavenie</span>
+                <span class="en">My Gear & Equipment</span>
+            </h2>
+            <p>
+                <span class="sk">Na fotenie a natáčanie videí používam profesionálnu techniku, ktorá zaručuje maximálnu ostrosť, skvelý dynamický rozsah a stabilný výstup za každých svetelných podmienok:</span>
+                <span class="en">For photography and video production, I use professional equipment that guarantees maximum sharpness, great dynamic range, and stable output under any lighting conditions:</span>
+            </p>
+
+            <div class="tech-grid">
+                <!-- 1. Kamery / Telo -->
+                <div class="tech-card">
+                    <h3>📷 <span class="sk">Kamery</span><span class="en">Cameras</span></h3>
+                    <ul class="tech-list">
+                        <li>Sony Alpha / Canon EOS R <span style="opacity: 0.5; font-size: 0.8rem;">(Doplň svoj model)</span></li>
+                        <li><span class="sk">Záložné telo</span><span class="en">Backup body</span></li>
+                        <li>4K Video 60fps / 10-bit</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Objektívy -->
+                <div class="tech-card">
+                    <h3>🔍 <span class="sk">Objektívy</span><span class="en">Lenses</span></h3>
+                    <ul class="tech-list">
+                        <li>24-70mm f/2.8 <span class="sk">(Univerzál)</span><span class="en">(Zoom)</span></li>
+                        <li>50mm f/1.8 <span class="sk">(Portréty / Detail)</span><span class="en">(Portraits)</span></li>
+                        <li>85mm f/1.4 <span class="sk">(Svetelný pevný)</span><span class="en">(Prime)</span></li>
+                    </ul>
+                </div>
+
+                <!-- 3. Stabilizácia a doplnky -->
+                <div class="tech-card">
+                    <h3>🎬 <span class="sk">Stabilizácia / Rig</span><span class="en">Gimbals & Rigs</span></h3>
+                    <ul class="tech-list">
+                        <li>DJI Ronin <span class="sk">(3-osový stabilizátor)</span><span class="en">(3-axis gimbal)</span></li>
+                        <li><span class="sk">Statív s fluidnou hlavou</span><span class="en">Fluid head tripod</span></li>
+                        <li>ND Filtre <span class="sk">(pre plynulé video)</span><span class="en">(for smooth video)</span></li>
+                    </ul>
+                </div>
+
+                <!-- 4. Svetlo a Zvuk -->
+                <div class="tech-card">
+                    <h3>💡 <span class="sk">Svetlo & Zvuk</span><span class="en">Light & Audio</span></h3>
+                    <ul class="tech-list">
+                        <li>Røde Wireless <span class="sk">(Bezdrôtový mikrofón)</span><span class="en">(Wireless mic)</span></li>
+                        <li>LED RGB <span class="sk">externé svetlo</span><span class="en">external light</span></li>
+                        <li><span class="sk">Smerový mikrofón</span><span class="en">Shotgun microphone</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         <main>
             
