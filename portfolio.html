@@ -250,6 +250,74 @@
             transform: translateY(-3px);
             background-color: #e5e5e5;
         }
+
+        .tech-section {
+    background: rgba(255, 255, 255, 0.02); 
+    padding: 40px; 
+    margin-bottom: 40px; 
+    border-radius: 12px; 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+
+.tech-section:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(108, 92, 231, 0.5);
+    box-shadow: 0 0 25px rgba(108, 92, 231, 0.2);
+}
+
+/* Mriežka pre kategórie techniky */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-3px);
+}
+
+.tech-card h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-list li {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    opacity: 0.85;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Malá fialová bodka pred každou položkou */
+.tech-list li::before {
+    content: "•";
+    color: #6c5ce7;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
     </style>
 </head>
 <body>
