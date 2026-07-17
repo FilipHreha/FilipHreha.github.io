@@ -72,81 +72,28 @@
             line-height: 1.6;
         }
 
-        /* --- FOTO & VIDEO TECHNIKA --- */
-        .tech-section {
-            background: rgba(255, 255, 255, 0.02); 
-            padding: 40px; 
-            margin-bottom: 60px; 
-            border-radius: 12px; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .tech-section:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(108, 92, 231, 0.5);
-            box-shadow: 0 0 25px rgba(108, 92, 231, 0.2);
-        }
-
-        .tech-section h2 {
-            margin-top: 0;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .tech-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .tech-card h3 {
-            margin-top: 0;
-            font-size: 1.3rem;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tech-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .tech-list li {
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-            opacity: 0.85;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .tech-list li::before {
-            content: "•";
-            color: #6c5ce7;
-            font-weight: bold;
-            display: inline-block; 
-            width: 1em;
-            margin-left: -1em;
-        }
+        <!-- SEKCIA: FOTO & VIDEO TECHNIKA (Zjednodušený klasický zoznam) -->
+        <section class="tech-section">
+            <h2>
+                <span class="sk">Technické vybavenie</span>
+                <span class="en">Gear & Equipment</span>
+            </h2>
+            
+            <ul class="tech-list" style="padding-left: 0; margin-top: 20px;">
+                <li style="font-size: 1.1rem; margin-bottom: 12px;">
+                    📷 <strong><span class="sk">Fotoaparát:</span><span class="en">Camera:</span></strong> Canon EOS 600D
+                </li>
+                <li style="font-size: 1.1rem; margin-bottom: 12px;">
+                    🔍 <strong><span class="sk">Objektívy:</span><span class="en">Lenses:</span></strong> Canon EF-S 18-55mm & Canon EF-S 55-250mm
+                </li>
+                <li style="font-size: 1.1rem; margin-bottom: 12px;">
+                    📱 <strong><span class="sk">Video & Stabilizácia:</span><span class="en">Video & Stabilization:</span></strong> iPhone 13 + DJI OM 4 SE & <span class="sk">statív</span><span class="en">tripod</span>
+                </li>
+                <li style="font-size: 1.1rem; margin-bottom: 12px;">
+                    🛸 <strong><span class="sk">Dron:</span><span class="en">Drone:</span></strong> DJI Neo
+                </li>
+            </ul>
+        </section>
 
         /* --- PRIEČINKY / KATEGÓRIE --- */
         .category-folder {
