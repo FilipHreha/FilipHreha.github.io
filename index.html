@@ -351,22 +351,23 @@ pointer-events: none;
             background-color: #e5e5e5;
         }
 
-  /* --- SEKCE ŽIVOTOPIS (TLAČIDLO NA KONCI) --- */
+ /* --- SEKCE ŽIVOTOPIS (ČISTÉ TLAČIDLO BEZ POZADIA) --- */
         .resume-section {
             text-align: center;
-            margin-top: 60px;
-            margin-bottom: 20px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 50px;
+            margin-bottom: 30px;
+            padding: 0;
+            background: none;
+            border: none;
         }
 
         .download-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background-color: rgba(255, 255, 255, 0.02);
+            background: none;
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 15px 30px;
             font-size: 1.1rem;
             font-weight: bold;
@@ -375,13 +376,12 @@ pointer-events: none;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background-color 0.4s, border-color 0.4s, box-shadow 0.4s, transform 0.3s;
+            transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
         }
 
         .download-btn:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
         }
 </style>
