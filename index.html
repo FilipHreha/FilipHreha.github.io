@@ -351,14 +351,15 @@ pointer-events: none;
             background-color: #e5e5e5;
         }
 
- /* --- SEKCE ŽIVOTOPIS (ČISTÉ TLAČIDLO BEZ POZADIA) --- */
-        .resume-section {
+ /* --- SEKCE ŽIVOTOPIS (BEZ AKÉHOKOĽVEK POZADIA A EFEKTOV) --- */
+        .resume-container {
             text-align: center;
             margin-top: 50px;
             margin-bottom: 30px;
             padding: 0;
-            background: none;
-            border: none;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
         }
 
         .download-btn {
@@ -755,12 +756,12 @@ Neposlušný psík
 </section>
 </div>
 <!-- TLAČIDLO NA STIAHNUTIE ŽIVOTOPISU -->
-        <section class="resume-section">
+        <div class="resume-section">
             <a href="FilipHreha_CV.pdf" download class="download-btn"> 
                 <span class="sk">Stiahnuť životopis</span>
                 <span class="en">Download Resume</span>
             </a>
-        </section>
+        </div>
 <div id="toast" class="toast">
 <span class="sk">Skopírované!</span>
 <span class="en">Copied!</span>
