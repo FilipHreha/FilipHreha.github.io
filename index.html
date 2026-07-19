@@ -183,6 +183,17 @@ color: inherit;
 display: block;
 }
 
+  /* DEFINTÍVNE PREBITIE MODREJ FARBY OD-KAZOV NA FIALOVÚ */
+.purple-text, 
+.purple-text .btn-sub {
+    color: #6c5ce7 !important;
+}
+
+body.light-mode .purple-text, 
+body.light-mode .purple-text .btn-sub {
+    color: #5b4bc4 !important; /* Tmavšia fialová pre svetlý režim */
+}
+  
 /* --- SEKCIE --- */
 section { 
 background: rgba(255, 255, 255, 0.02); 
