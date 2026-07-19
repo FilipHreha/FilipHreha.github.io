@@ -183,6 +183,14 @@ color: inherit;
 display: block;
 }
 
+  /* FIALOVÁ FARBA PRE MAIL A TELEFÓN */
+.purple-text .btn-title {
+    color: #6c5ce7 !important;
+}
+body.light-mode .purple-text .btn-title {
+    color: #5b4bc4 !important; /* Tmavšia fialová pre svetlý režim */
+}
+  
 /* --- SEKCIE --- */
 section { 
 background: rgba(255, 255, 255, 0.02); 
@@ -366,28 +374,29 @@ pointer-events: none;
         }
 
         .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: none;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
-        }
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe); /* Fialový gradient */
+    color: #ffffff !important;
+    border: none;
+    padding: 15px 35px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    transition: box-shadow 0.4s, transform 0.3s, filter 0.3s;
+}
 
-        .download-btn:hover {
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(108, 92, 231, 0.5);
+    filter: brightness(1.1);
+}
 </style>
 </head>
 
@@ -424,12 +433,12 @@ pointer-events: none;
 <h1>Filip Hreha</h1>
 
 <div class="contact-buttons">
-<a href="mailto:filiphreha6@gmail.com" class="btn" onclick="copyToClipboard('filiphreha6@gmail.com', event)">
+<a href="mailto:filiphreha6@gmail.com" class="btn purple-text" onclick="copyToClipboard('filiphreha6@gmail.com', event)">
 <span class="btn-title">Mail</span>
 <span class="btn-sub">filiphreha6@gmail.com</span>
 </a>
 
-<a href="tel:+421900000000" class="btn" onclick="copyToClipboard('+421 --- --- ---', event)">
+<a href="tel:+421944459344" class="btn purple-text" onclick="copyToClipboard('+421 944 459 344', event)">
 <span class="btn-title">
 <span class="sk">Telefón</span>
 <span class="en">Phone</span>
