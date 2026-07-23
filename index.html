@@ -391,35 +391,36 @@ pointer-events: none;
     filter: brightness(1.1);
 }
 
- /* Základ pre LED pásy */
+/* Základ pre LED pásy po bokoch (môžeš ich urobiť hrubšie, napr. 16px, aby bol efekt jasnejší) */
 .led-strip {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 12px; /* Hrúbka pásu (uprav podľa potreby) */
+  width: 16px; /* Nastav hrúbku podľa potreby */
   z-index: 9999;
   pointer-events: none;
   
-  /* Rovnaký gradient ako na progress bare, zvislo odhora nadol */
-  background: linear-gradient(180deg, #6c5ce7, #a29bfe);
-  
-  /* Statické svetelné žiarenie vytvorené z oboch farieb */
+  /* Základný 'glow' efekt s tvojimi fialovými farbami */
   box-shadow: 
-    0 0 10px #6c5ce7,
-    0 0 25px #6c5ce7,
-    0 0 45px #a29bfe;
+    0 0 10px rgba(108, 92, 231, 0.7),
+    0 0 25px rgba(108, 92, 231, 0.5),
+    0 0 45px rgba(162, 155, 254, 0.4);
 }
 
-/* Ľavý pás + zaoblenie vnútornej hranatosti */
+/* ĽAVÝ PÁS: Biela úplne vľavo, fialová vpravo (presne ako na obrázku) */
 .led-left {
   left: 0;
-  border-radius: 0 8px 8px 0;
+  /* Gradient zľava (biela) doprava (fialová) */
+  background: linear-gradient(90deg, #ffffff 0%, #6c5ce7 100%);
+  border-radius: 0 8px 8px 0; /* Zaoblenie vnútornej hranatosti */
 }
 
-/* Pravý pás + zaoblenie vnútornej hranatosti */
+/* PRAVÝ PÁS: Biela úplne vpravo, fialová vľavo (zrkadlovo otočené) */
 .led-right {
   right: 0;
-  border-radius: 8px 0 0 8px;
+  /* Gradient zprava (biela) doľava (fialová) */
+  background: linear-gradient(270deg, #ffffff 0%, #6c5ce7 100%);
+  border-radius: 8px 0 0 8px; /* Zaoblenie vnútornej hranatosti */
 }
 
 /* Animácia pulzovania svetla */
