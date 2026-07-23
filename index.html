@@ -389,6 +389,47 @@ pointer-events: none;
     box-shadow: 0 6px 25px rgba(108, 92, 231, 0.5);
     filter: brightness(1.1);
 }
+
+  /* LED pásy - po bokoch */
+.led-strip {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 6px; /* Hrúbka pásu */
+  background: #00f3ff; /* Farba LED svetla (Tyrkysová) */
+  z-index: 9999; /* Zabezpečí, že pásy budú nad ostatnými prvkami */
+  pointer-events: none; /* Kliknutia prejdú cez pásy, nebudú zavadzať */
+  
+  /* Efekt žiarenia (glow) */
+  box-shadow: 
+    0 0 10px #00f3ff,
+    0 0 25px #00f3ff,
+    0 0 45px #00f3ff;
+  
+  /* Plynulé pulzovanie */
+  animation: ledPulse 2s infinite alternate ease-in-out;
+}
+
+/* Umiestnenie na krajoch */
+.led-left {
+  left: 0;
+}
+
+.led-right {
+  right: 0;
+}
+
+/* Animácia pulzovania svetla */
+@keyframes ledPulse {
+  0% {
+    opacity: 0.7;
+    box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 15px #00f3ff, 0 0 35px #00f3ff, 0 0 60px #00f3ff;
+  }
+}
 </style>
 </head>
 
@@ -397,6 +438,10 @@ pointer-events: none;
 
 <div class="container">
 
+<!-- LED pásy po bokoch -->
+<div class="led-strip led-left"></div>
+<div class="led-strip led-right"></div>
+  
 <nav class="top-bar">
 <a href="portfolio.html" target="_blank" class="menu-btn">
 <span class="sk">FOTO - PORTFÓLIO</span>
