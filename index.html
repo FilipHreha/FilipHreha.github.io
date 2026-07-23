@@ -391,37 +391,35 @@ pointer-events: none;
     filter: brightness(1.1);
 }
 
-  /* LED pásy - po bokoch */
+ /* Základ pre LED pásy */
 .led-strip {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 14px; /* Hrúbka pásu */
-  background: #6c5ce7; /* Farba LED svetla (Tyrkysová) */
-  z-index: 9999; /* Zabezpečí, že pásy budú nad ostatnými prvkami */
-  pointer-events: none; /* Kliknutia prejdú cez pásy, nebudú zavadzať */
+  width: 12px; /* Hrúbka pásu (uprav podľa potreby) */
+  z-index: 9999;
+  pointer-events: none;
   
-  /* Efekt žiarenia (glow) */
+  /* Rovnaký gradient ako na progress bare, zvislo odhora nadol */
+  background: linear-gradient(180deg, #6c5ce7, #a29bfe);
+  
+  /* Statické svetelné žiarenie vytvorené z oboch farieb */
   box-shadow: 
     0 0 10px #6c5ce7,
     0 0 25px #6c5ce7,
-    0 0 45px #6c5ce7;
-  
-  /* Plynulé pulzovanie */
-  animation: ledPulse 2s infinite alternate ease-in-out;
+    0 0 45px #a29bfe;
 }
 
-/* Umiestnenie na krajoch */
-/* Zaoblenie pre ĽAVÝ pás (zaoblíme rohy na pravej strane pásu) */
+/* Ľavý pás + zaoblenie vnútornej hranatosti */
 .led-left {
   left: 0;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 8px 8px 0;
 }
 
-/* Zaoblenie pre PRAVÝ pás (zaoblíme rohy na ľavej strane pásu) */
+/* Pravý pás + zaoblenie vnútornej hranatosti */
 .led-right {
   right: 0;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 }
 
 /* Animácia pulzovania svetla */
