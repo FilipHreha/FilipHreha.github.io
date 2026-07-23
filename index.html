@@ -402,9 +402,9 @@ pointer-events: none;
   
   /* Základný 'glow' efekt s tvojimi fialovými farbami */
   box-shadow: 
-    0 0 10px rgba(108, 92, 231, 0.7),
-    0 0 25px rgba(108, 92, 231, 0.5),
-    0 0 45px rgba(162, 155, 254, 0.4);
+    0 0 15px rgba(108, 92, 231, 0.7),
+    0 0 30px rgba(108, 92, 231, 0.5),
+    0 0 50px rgba(162, 155, 254, 0.4);
 }
 
 /* ĽAVÝ PÁS: Biela úplne vľavo, fialová vpravo (presne ako na obrázku) */
@@ -423,6 +423,11 @@ pointer-events: none;
   border-radius: 8px 0 0 8px; /* Zaoblenie vnútornej hranatosti */
 }
 
+  /* Skryje LED pásy, keď je aktívny light-mode */
+body.light-mode .led-strip {
+  display: none;
+}
+
 /* Animácia pulzovania svetla */
 @keyframes ledPulse {
   0% {
@@ -431,7 +436,7 @@ pointer-events: none;
   }
   100% {
     opacity: 1;
-    box-shadow: 0 0 15px #6c5ce7, 0 0 35px #6c5ce7, 0 0 60px #6c5ce7;
+    box-shadow: 0 0 20px #6c5ce7, 0 0 40px #6c5ce7, 0 0 65px #6c5ce7;
   }
 }
 </style>
