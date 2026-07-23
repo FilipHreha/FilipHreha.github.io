@@ -322,6 +322,7 @@ pointer-events: none;
     background: linear-gradient(90deg, #6c5ce7, #a29bfe); /* Pekný prechod z fialovej do svetlejšej */
     z-index: 9999; /* Zabezpečí, že bude vždy navrchu nad všetkým */
     transition: width 0.1s ease-out;
+    transition: width 0.1s ease-out;
 }
 
   #scrollTopBtn {
@@ -395,16 +396,16 @@ pointer-events: none;
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 6px; /* Hrúbka pásu */
-  background: #00f3ff; /* Farba LED svetla (Tyrkysová) */
+  width: 14px; /* Hrúbka pásu */
+  background: #6c5ce7; /* Farba LED svetla (Tyrkysová) */
   z-index: 9999; /* Zabezpečí, že pásy budú nad ostatnými prvkami */
   pointer-events: none; /* Kliknutia prejdú cez pásy, nebudú zavadzať */
   
   /* Efekt žiarenia (glow) */
   box-shadow: 
-    0 0 10px #00f3ff,
-    0 0 25px #00f3ff,
-    0 0 45px #00f3ff;
+    0 0 10px #6c5ce7,
+    0 0 25px #6c5ce7,
+    0 0 45px #6c5ce7;
   
   /* Plynulé pulzovanie */
   animation: ledPulse 2s infinite alternate ease-in-out;
@@ -423,11 +424,11 @@ pointer-events: none;
 @keyframes ledPulse {
   0% {
     opacity: 0.7;
-    box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+    box-shadow: 0 0 10px #6c5ce7, 0 0 20px #6c5ce7;
   }
   100% {
     opacity: 1;
-    box-shadow: 0 0 15px #00f3ff, 0 0 35px #00f3ff, 0 0 60px #00f3ff;
+    box-shadow: 0 0 15px #6c5ce7, 0 0 35px #6c5ce7, 0 0 60px #6c5ce7;
   }
 }
 </style>
