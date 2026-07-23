@@ -412,12 +412,16 @@ pointer-events: none;
 }
 
 /* Umiestnenie na krajoch */
+/* Zaoblenie pre ĽAVÝ pás (zaoblíme rohy na pravej strane pásu) */
 .led-left {
   left: 0;
+  border-radius: 0 10px 10px 0;
 }
 
+/* Zaoblenie pre PRAVÝ pás (zaoblíme rohy na ľavej strane pásu) */
 .led-right {
   right: 0;
+  border-radius: 10px 0 0 10px;
 }
 
 /* Animácia pulzovania svetla */
