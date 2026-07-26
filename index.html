@@ -12,14 +12,21 @@
 <style>
 /* --- GLOBÁLNE ŠTÝLY (Základ je tmavý režim) --- */
 body { 
-font-family: 'Arial', sans-serif; 
-line-height: 1.6; 
-margin: 0; 
-padding: 0; 
-background-color: #0f0f11;
-color: #a1a1a6;     
-transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
--webkit-font-smoothing: antialiased;
+  font-family: 'Arial', sans-serif; 
+  line-height: 1.6; 
+  margin: 0; 
+  padding: 0; 
+  background-color: #0f0f11;
+  color: #a1a1a6;      
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+  -webkit-font-smoothing: antialiased;
+
+  /* --- HEXAGONÁLNY PATTERN --- */
+  background-image: 
+    radial-gradient(#1e1e24 300px, transparent 300px),
+    radial-gradient(#1e1e24 300px, transparent 300px);
+  background-size: 60px 104px;
+  background-position: 0 0, 30px 52px;
 }
 section:hover {
 border-color: rgba(255, 255, 255, 0.3);
