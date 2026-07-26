@@ -11,17 +11,28 @@
 
 <style>
 /* --- GLOBÁLNE ŠTÝLY (Základ je tmavý režim) --- */
-
 body { 
-font-family: 'Arial', sans-serif; 
-line-height: 1.6; 
-margin: 0; 
-padding: 0; 
-background-color: #0f0f11;
-color: #a1a1a6;     
-transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
--webkit-font-smoothing: antialiased;
-} 
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #0f0f11;
+    color: #a1a1a6;      
+    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+    -webkit-font-smoothing: antialiased;
+
+    /* Hexagonový vzor */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.05) 0%, transparent 60%), /* Jemný fialový nádych v strede */
+        linear-gradient(30deg, #16161a 12%, transparent 12.5%, transparent 87%, #16161a 87.5%, #16161a),
+        linear-gradient(150deg, #16161a 12%, transparent 12.5%, transparent 87%, #16161a 87.5%, #16161a),
+        linear-gradient(30deg, #16161a 12%, transparent 12.5%, transparent 87%, #16161a 87.5%, #16161a),
+        linear-gradient(150deg, #16161a 12%, transparent 12.5%, transparent 87%, #16161a 87.5%, #16161a),
+        linear-gradient(60deg, #1d1d22 25%, transparent 25.5%, transparent 75%, #1d1d22 75.5%, #1d1d22),
+        linear-gradient(60deg, #1d1d22 25%, transparent 25.5%, transparent 75%, #1d1d22 75.5%, #1d1d22);
+    background-size: 100% 100%, 80px 140px, 80px 140px, 80px 140px, 80px 140px, 80px 140px, 80px 140px;
+    background-position: 0 0, 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
 
 section:hover {
 border-color: rgba(255, 255, 255, 0.3);
@@ -84,8 +95,20 @@ body.lang-en .sk { display: none !important; }
 
 /* --- SVETLÝ REŽIM (Prepisovanie farieb) --- */
 body.light-mode {
-background-color: #f7f7f9;
-color: #48484a;
+    background-color: #f7f7f9;
+    color: #48484a;
+
+    /* Jemný hexagonový vzor pre svetlý režim */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.03) 0%, transparent 60%),
+        linear-gradient(30deg, #ededf2 12%, transparent 12.5%, transparent 87%, #ededf2 87.5%, #ededf2),
+        linear-gradient(150deg, #ededf2 12%, transparent 12.5%, transparent 87%, #ededf2 87.5%, #ededf2),
+        linear-gradient(30deg, #ededf2 12%, transparent 12.5%, transparent 87%, #ededf2 87.5%, #ededf2),
+        linear-gradient(150deg, #ededf2 12%, transparent 12.5%, transparent 87%, #ededf2 87.5%, #ededf2),
+        linear-gradient(60deg, #e2e2e8 25%, transparent 25.5%, transparent 75%, #e2e2e8 75.5%, #e2e2e8),
+        linear-gradient(60deg, #e2e2e8 25%, transparent 25.5%, transparent 75%, #e2e2e8 75.5%, #e2e2e8);
+    background-size: 100% 100%, 80px 140px, 80px 140px, 80px 140px, 80px 140px, 80px 140px, 80px 140px;
+    background-position: 0 0, 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
   
