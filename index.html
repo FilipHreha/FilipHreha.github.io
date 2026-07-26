@@ -16,11 +16,24 @@ body {
   line-height: 1.6; 
   margin: 0; 
   padding: 0; 
-  background-color: #0f0f11;
-  color: #a1a1a6;      
-  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+  background-color: var(--bg-color);
+  color: var(--text-color);      
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
   -webkit-font-smoothing: antialiased;
+
+  /* JEDEN HEXAGONÁLNY PATTERN (farba čiar sa riadi premennou --pattern-stroke) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill='none' stroke='var(--pattern-stroke)' stroke-width='1'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.2l10.99 6.35 11-6.35V17.9l-11-6.35L3 17.9zM0 15l12.98-7.5V0h2v7.5L28 15v1.5l-1.02.59L14 10.33 1.02 17.09 0 16.5V15zm0 19l1.02-.59L14 40.17l12.98-6.76L28 34v1.5l-13 7.5H13.98L0 35.5V34z'/%3E%3C/g%3E%3C/svg%3E");
 }
+
+  /* --- TÉMOVÉ PREMENNÉ --- */
+:root {
+  --bg-color: #0f0f11;
+  --text-color: #a1a1a6;
+  --section-bg: rgba(255, 255, 255, 0.02);
+  --section-border: rgba(255, 255, 255, 0.05);
+  --pattern-stroke: rgba(255, 255, 255, 0.03); /* Biela s 3% opacity */
+}
+  
 section:hover {
 border-color: rgba(255, 255, 255, 0.3);
 box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
@@ -84,7 +97,13 @@ body.lang-en .sk { display: none !important; }
 body.light-mode {
 background-color: #f7f7f9;
 color: #48484a;
+  --section-bg: rgba(255, 255, 255, 0.8);
+  --section-border: rgba(0, 0, 0, 0.08);
+  --pattern-stroke: rgba(0, 0, 0, 0.04); /* Čierna s 4% opacity */
 }
+}
+
+  
 body.light-mode h1, 
 body.light-mode h2, 
 body.light-mode h3, 
