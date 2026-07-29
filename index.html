@@ -442,6 +442,31 @@ body.light-mode .led-strip {
     box-shadow: 0 0 20px #6c5ce7, 0 0 40px #6c5ce7, 0 0 65px #6c5ce7;
   }
 }
+
+    /* --- RESPONZÍVNE MENU PRE MOBILY --- */
+@media (max-width: 600px) {
+    /* Zákaz zalamovania textu v tlačidlách */
+    .btn, button, a.btn {
+        white-space: nowrap;
+        font-size: 13px !important; /* Mierne zmenšenie písma */
+        padding: 8px 10px !important; /* Zmenšenie vnútorného okrajov */
+    }
+
+    /* Prepínač jazykov skrátime / dáme vedľa seba */
+    .lang-switcher, .theme-toggle {
+        font-size: 13px !important;
+        padding: 8px 10px !important;
+    }
+
+    /* Ak je nav/header obal flexbox, prispôsobíme medzery */
+    header, nav, .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px !important;
+        padding: 10px 5px !important;
+    }
+}
 </style>
 </head>
 
