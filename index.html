@@ -207,6 +207,7 @@
       background: #ffffff;
     }
 
+    /* Profilový obrázok - OPRAVENÉ CSS */
     .hero-mockup {
       background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(15px);
@@ -215,10 +216,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #8e8e93;
-      font-size: 14px;
       border: 1px solid rgba(0, 0, 0, 0.1);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+      overflow: hidden; /* Zabezpečí, že obrázok nepresiahne rohy */
+    }
+
+    .hero-mockup img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* SKLENÉ KARTY */
@@ -239,7 +246,6 @@
       overflow: hidden;
       position: relative;
       padding: 10px 0;
-      /* Masmaskovanie okrajov do stratena */
       mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
       -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
@@ -252,7 +258,7 @@
     }
 
     .skills-slider-container:hover .skills-track {
-      animation-play-state: paused; /* Pozastaví animáciu pri prechode myšou */
+      animation-play-state: paused;
     }
 
     @keyframes scrollSkills {
@@ -260,7 +266,7 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-50%); /* Posunie o presnú polovicu, keďže kód je duplikovaný pre plynulú slučku */
+        transform: translateX(-50%);
       }
     }
 
@@ -286,6 +292,7 @@
       gap: 14px;
     }
 
+    /* IKONY ZRUČNOSTÍ - OPRAVENÉ CSS */
     .skill-icon {
       width: 42px;
       height: 42px;
@@ -296,7 +303,15 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 18px;
+      font-size: 14px;
+      font-weight: 700;
+      overflow: hidden;
+    }
+
+    .skill-icon img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
     }
 
     .skill-info {
@@ -490,12 +505,11 @@
           </p>
           <div class="hero-buttons">
             <a href="#kontakt" class="btn-main" data-sk="Kontakt" data-en="Contact">Kontakt</a>
-            <!-- Tlačidlo pripravené na stiahnutie CV -->
             <a href="FilipHreha_CV.pdf" download="FilipHreha_CV.pdf" class="btn-secondary" data-sk="Stiahnuť CV" data-en="Download CV">Stiahnuť CV</a>
           </div>
         </div>
         <div class="hero-mockup">
-          <img src="profil.jpg">
+          <img src="profil.jpg" alt="Filip Hreha">
         </div>
       </div>
     </section>
@@ -530,7 +544,7 @@
           <div class="date">6.2026 - 7.2026</div>
           <div class="item-title" data-sk="Skladník" data-en="Warehouse Operative">Skladník</div>
           <div class="item-subtitle">Neposlušný psík</div>
-          <p class="item-desc" data-sk="Príjem tovaru, evidencia a výdaj tovaru, kontrola dodacích listov, presné vychystávanie objednávok, manipulácia so skladovými zásobami, udržiavanie poriadku v skladových priestoroch" data-en="Receiving goods, recording and dispatching goods, checking delivery notes, precise order picking, handling warehouse stock, maintaining order in the warehouse facilities">Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom a dopĺňanie tovaru.</p>
+          <p class="item-desc" data-sk="Príjem tovaru, evidencia a výdaj tovaru, kontrola dodacích listov, presné vychystávanie objednávok, manipulácia so skladovými zásobami, udržiavanie poriadku v skladových priestoroch" data-en="Receiving goods, recording and dispatching goods, checking delivery notes, precise order picking, handling warehouse stock, maintaining order in the warehouse facilities">Príjem tovaru, evidencia a výdaj tovaru, kontrola dodacích listov, presné vychystávanie objednávok, manipulácia so skladovými zásobami, udržiavanie poriadku v skladových priestoroch.</p>
         </div>
 
       </div>
@@ -590,19 +604,19 @@
         <div class="timeline-item">
           <div class="date">13.2.2026 - 13.2.2027</div>
           <div class="item-title" data-sk="Certifikácia Google Ads pre Obsahovú sieť" data-en="Google Ads Display">Certifikácia Google Ads pre Obsahovú sieť</div>
-          <a href="https://skillshop.credential.net/d22fb1de-d909-4b4a-8350-45937b85b3f1#acc.13wMDojr" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Článok v médiách</a>
+          <a href="https://skillshop.credential.net/d22fb1de-d909-4b4a-8350-45937b85b3f1#acc.13wMDojr" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Overiť certifikát</a>
         </div>
 
         <div class="timeline-item">
           <div class="date">16.2.2026 - 16.2.2027</div>
           <div class="item-title" data-sk="Certifikácia Google Ads - Kreatíva" data-en="Google Ads Creative">Certifikácia Google Ads - Kreatíva</div>
-          <a href="https://skillshop.credential.net/184a60f3-71c0-4cd0-94ee-b5f5d1d4c952#acc.c4JD73SE" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Článok v médiách</a>
+          <a href="https://skillshop.credential.net/184a60f3-71c0-4cd0-94ee-b5f5d1d4c952#acc.c4JD73SE" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Overiť certifikát</a>
         </div>
 
         <div class="timeline-item">
           <div class="date">17.2.2026 - 17.2.2027</div>
           <div class="item-title" data-sk="Certifikácia Google Ads pre videoreklamu" data-en="Google Ads Video">Certifikácia Google Ads pre videoreklamu</div>
-          <a href="https://skillshop.credential.net/4a9976f7-0242-4d6d-9221-eb37db421629#acc.ZhTimdBU" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Článok v médiách</a>
+          <a href="https://skillshop.credential.net/4a9976f7-0242-4d6d-9221-eb37db421629#acc.ZhTimdBU" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Overiť certifikát</a>
         </div>
       </div>
     </section>
@@ -616,7 +630,7 @@
           <!-- SADA KARIET (1. KRÁT) -->
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">Ps</div>
+              <div class="skill-icon"><img src="icons/ps.png" alt="Photoshop"></div>
               <div class="skill-info">
                 <span class="skill-title">Adobe Photoshop</span>
                 <span class="skill-percentage">90%</span>
@@ -627,7 +641,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">Pr</div>
+              <div class="skill-icon"><img src="icons/pr.png" alt="Premiere Pro"></div>
               <div class="skill-info">
                 <span class="skill-title">Adobe Premiere Pro</span>
                 <span class="skill-percentage">85%</span>
@@ -638,7 +652,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">SE</div>
+              <div class="skill-icon"><img src="icons/solidedge.png" alt="SolidEdge"></div>
               <div class="skill-info">
                 <span class="skill-title">SolidEdge</span>
                 <span class="skill-percentage">80%</span>
@@ -649,7 +663,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">Lr</div>
+              <div class="skill-icon"><img src="icons/lr.png" alt="Lightroom"></div>
               <div class="skill-info">
                 <span class="skill-title">Adobe Lightroom</span>
                 <span class="skill-percentage">70%</span>
@@ -660,7 +674,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">&lt;&gt;</div>
+              <div class="skill-icon"><img src="icons/html.png" alt="HTML/CSS"></div>
               <div class="skill-info">
                 <span class="skill-title">HTML & CSS</span>
                 <span class="skill-percentage">50%</span>
@@ -671,7 +685,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">CAD</div>
+              <div class="skill-icon"><img src="icons/autocad.png" alt="AutoCAD"></div>
               <div class="skill-info">
                 <span class="skill-title">AutoCAD</span>
                 <span class="skill-percentage">50%</span>
@@ -682,7 +696,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">M</div>
+              <div class="skill-icon"><img src="icons/matlab.png" alt="MATLAB"></div>
               <div class="skill-info">
                 <span class="skill-title">MATLAB</span>
                 <span class="skill-percentage">50%</span>
@@ -693,7 +707,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">C++</div>
+              <div class="skill-icon"><img src="icons/cpp.png" alt="C++"></div>
               <div class="skill-info">
                 <span class="skill-title">C++</span>
                 <span class="skill-percentage">50%</span>
@@ -705,9 +719,7 @@
           <!-- DUPLIKOVANÁ SADA KARIET (PRE PLYNULÚ NEKONEČNÚ SMYČKU) -->
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/ps.png">
-              </div>
+              <div class="skill-icon"><img src="icons/ps.png" alt="Photoshop"></div>
               <div class="skill-info">
                 <span class="skill-title">Adobe Photoshop</span>
                 <span class="skill-percentage">90%</span>
@@ -718,9 +730,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/pr.png">
-              </div>
+              <div class="skill-icon"><img src="icons/pr.png" alt="Premiere Pro"></div>
               <div class="skill-info">
                 <span class="skill-title">Adobe Premiere Pro</span>
                 <span class="skill-percentage">85%</span>
@@ -731,9 +741,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/solidedge.png">
-              </div>
+              <div class="skill-icon"><img src="icons/solidedge.png" alt="SolidEdge"></div>
               <div class="skill-info">
                 <span class="skill-title">SolidEdge</span>
                 <span class="skill-percentage">80%</span>
@@ -744,9 +752,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/lr.png">
-              </div>
+              <div class="skill-icon"><img src="icons/lr.png" alt="Lightroom"></div>
               <div class="skill-info">
                 <span class="skill-title">Adobe Lightroom</span>
                 <span class="skill-percentage">70%</span>
@@ -757,9 +763,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/html.png">
-              </div>
+              <div class="skill-icon"><img src="icons/html.png" alt="HTML/CSS"></div>
               <div class="skill-info">
                 <span class="skill-title">HTML & CSS</span>
                 <span class="skill-percentage">50%</span>
@@ -770,9 +774,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/autocad.png">
-              </div>
+              <div class="skill-icon"><img src="icons/autocad.png" alt="AutoCAD"></div>
               <div class="skill-info">
                 <span class="skill-title">AutoCAD</span>
                 <span class="skill-percentage">50%</span>
@@ -783,9 +785,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/matlab.png">
-              </div>
+              <div class="skill-icon"><img src="icons/matlab.png" alt="MATLAB"></div>
               <div class="skill-info">
                 <span class="skill-title">MATLAB</span>
                 <span class="skill-percentage">50%</span>
@@ -796,9 +796,7 @@
 
           <div class="skill-card">
             <div class="skill-top">
-              <div class="skill-icon">
-                <img src="icons/cpp.png">
-              </div>
+              <div class="skill-icon"><img src="icons/cpp.png" alt="C++"></div>
               <div class="skill-info">
                 <span class="skill-title">C++</span>
                 <span class="skill-percentage">50%</span>
@@ -819,11 +817,11 @@
           <div class="date" data-sk="2025 - Súčasnosť" data-en="2025 - Present">2025 - Súčasnosť</div>
           <div class="item-title" data-sk="Študentský parlament elektrotechnikov a informatikov" data-en="Student Parliament">Študentský parlament elektrotechnikov a informatikov</div>
           <div class="item-subtitle" data-sk="Člen PR komisie" data-en="PR Committee Member">Člen PR komisie</div>
-          <p class="item-desc" data-sk="Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov" data-en="Active participation in parliament operations, organizing school and extracurricular events, contributing to the improvement of the school environment, website management, event photography, creating graphic materials">Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty (PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch.</p>
-          <a href="https://www.atpjournal.sk/rubriky/podujatia/vitazom-syga-sa-stal-projekt-testovacieho-modelu-bateriovych-clankov.html?page_id=38278" class="link-btn" data-sk="Odkaz na web" data-en="Official website">Odkaz na web</a>
+          <p class="item-desc" data-sk="Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov" data-en="Active participation in parliament operations, organizing school and extracurricular events, contributing to the improvement of the school environment, website management, event photography, creating graphic materials">Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov</p>
+          <a href="https://spei.sk" class="link-btn" data-sk="Odkaz na web" data-en="Official website">Odkaz na web</a>
         </div>
       </div>
-      </section>
+    </section>
 
     <!-- CTA BANNER -->
     <section id="kontakt">
