@@ -1,930 +1,856 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Filip Hreha | Životopis</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-<style>
-/* --- GLOBÁLNE ŠTÝLY (Základ je tmavý režim) --- */
-body { 
-    font-family: 'Arial', sans-serif; 
-    line-height: 1.6; 
-    margin: 0; 
-    padding: 0; 
-    background-color: #0f0f11;
-    color: #a1a1a6;      
-    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
-    -webkit-font-smoothing: antialiased;
-}
-
-section:hover {
-border-color: rgba(255, 255, 255, 0.3);
-box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-/* --- FONT PRE NADPISY A TLAČIDLÁ --- */
-h1, h2, h3, .btn-title, .menu-btn {
-font-family: 'Bebas Neue', sans-serif;
-letter-spacing: 2px;
-color: #ffffff;
-}
-
-.container { 
-max-width: 900px; 
-margin: 0 auto; 
-padding: 40px 25px 60px 25px; 
-}
-
-/* --- TOP MENU (Minimalistické s čiarou) --- */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Vertikálne zarovná celé menu na stred */
-    margin-bottom: 40px;
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 15px;
-    transition: border-color 0.4s ease;
-    gap: 15px;
-}
-
-.top-bar-controls {
-    display: flex;
-    align-items: center; /* Zarovná ovládacie tlačidlá medzi sebou */
-    gap: 10px;
-}
-
-/* Jednotný štýl pre všetky 3 tlačidlá v menu (odkaz aj buttony) */
-.menu-btn, a.menu-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    height: 42px; /* Pevná rovnaká výška pre všetky tlačidlá */
-    background: transparent;
-    border: 2px solid #ffffff;
-    color: inherit;
-    padding: 0 16px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    text-decoration: none;
-    cursor: pointer;
-    white-space: nowrap; /* Zákaz zalamovania textu */
-    margin: 0;
-    line-height: 1;
-    transition: all 0.3s ease;
-}
-
-.menu-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* --- PREPÍNANIE JAZYKA --- */
-body.lang-sk .en { display: none !important; }
-body.lang-en .sk { display: none !important; }
-
-/* --- SVETLÝ REŽIM (Prepisovanie farieb) --- */
-body.light-mode {
-    background-color: #f7f7f9;
-    color: #48484a;
-}
-
-  
-body.light-mode h1, 
-body.light-mode h2, 
-body.light-mode h3, 
-body.light-mode .timeline-title,
-body.light-mode .btn-title,
-body.light-mode .menu-btn {
-color: #111111;
-}
-body.light-mode a {
-    color: #000000;
-}
-body.light-mode section,
-body.light-mode .btn {
-background: rgba(0, 0, 0, 0.02);
-border: 1px solid rgba(0, 0, 0, 0.08);
-}
-body.light-mode section:hover,
-body.light-mode .btn:hover {
-background: rgba(0, 0, 0, 0.06);
-border-color: rgba(0, 0, 0, 0.25);
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-}
-body.light-mode .profile-photo {
-border-color: rgba(0, 0, 0, 0.3);
-color: #48484a;
-}
-body.light-mode .top-bar {
-border-bottom: 2px solid #111111;
-}
-body.light-mode .menu-btn {
-border: 2px solid #111111;
-}
-body.light-mode .menu-btn:hover {
-background: rgba(0, 0, 0, 0.05);
-}
-body.light-mode h2 {
-border-bottom-color: rgba(0, 0, 0, 0.2);
-}
-body.light-mode .timeline-item {
-border-left-color: rgba(0, 0, 0, 0.2);
-}
-body.light-mode .toast {
-background: rgba(0, 0, 0, 0.9);
-color: #ffffff;
-}
-
-/* --- TOP SEKCIA --- */
-.top-section {
-display: flex;
-gap: 40px;
-margin-bottom: 50px;
-align-items: center;
-}
-
-.profile-photo {
-width: 250px;
-height: 350px;
-border: 1px solid rgba(255, 255, 255, 0.4);
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 4px;
-transition: border-color 0.4s ease, color 0.4s ease;
-}
-
-.profile-photo img {
-width: 100%;
-height: 100%;
-object-fit: cover; /* Roztiahne a vyplní box bez deformácie tváre */
-object-position: center; /* Vycentruje stred fotky */
-}
-
-.top-info { flex: 1; }
-.top-info h1 { margin: 0; font-size: 3.5rem; font-weight: 600; margin-bottom: 5px; }
-.top-info h3 { margin: 0 0 25px 0; font-weight: 400; font-size: 1.5rem; color: inherit; opacity: 0.8; }
-
-/* Tlačidlá kontaktov */
-.contact-buttons { display: flex; flex-direction: column; gap: 12px; }
-.btn {
-background: rgba(255, 255, 255, 0.02);
-border: 1px solid rgba(255, 255, 255, 0.05);
-border-radius: 8px;
-padding: 12px 20px;
-text-decoration: none;
-cursor: pointer;
-transition: all 0.3s ease;
-display: block;
-}
-.btn:hover {
-background: rgba(255, 255, 255, 0.08);
-border-color: rgba(255, 255, 255, 0.3);
-transform: translateY(-1px);
-}
-.btn-title { font-size: 1.3rem; display: block; margin-bottom: 2px; }
-.btn-sub {
-font-family: 'Arial', sans-serif;
-font-size: 0.85rem;
-color: inherit;
-display: block;
-}
-
-/* --- SEKCIE --- */
-section { 
-    background: #131316; /* Plná tmavá farba, cez ktorú vzor nepresvitá */
-    padding: 40px; 
-    margin-bottom: 30px; 
-    border-radius: 12px; 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background 0.4s, border 0.4s;
-}
-h2 { 
-font-size: 2rem;
-font-weight: 700;
-margin-top: 0;
-margin-bottom: 25px;
-border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-padding-bottom: 5px;
-display: inline-block;
-transition: border-color 0.4s ease;
-}
-
-/* --- TIMELINE --- */
-.timeline-item {
-margin-bottom: 25px;
-padding-left: 20px;
-border-left: 1px solid rgba(255, 255, 255, 0.2);
-transition: border-color 0.4s ease;
-}
-
-/* --- NOVÝ EFEKT PRE SVIETIACU ČIARU --- */
-.timeline-item:hover {
-border-left: 2px solid #ffffff;
-padding-left: 19px; /* Kompenzácia o 1px, aby text neodskočil kvôli hrubšej čiare */
-}
-.timeline-date { font-size: 0.9rem; opacity: 0.7; display: block; margin-bottom: 5px; }
-.timeline-title { font-weight: 700; font-size: 1.3rem; margin-bottom: 5px; color: #ffffff }
-.timeline-desc { margin: 0; }
-
-/* --- ŠTÝL PRE ZAMESTNÁVATEĽA --- */
-.timeline-employer {
-font-size: 1rem;
-color: #dededee5; /* Jemná sivá farba pre tmavý režim */
-font-weight: 600; /* Mierne tučné písmo */
-margin-top: -3px; /* Mierne pritiahnutie k názvu pozície */
-margin-bottom: 8px; /* Odstup od dlhého textu pod ním */
-}
-/* --- ZRUČNOSTI (SKILLS) --- */
-.skills-container {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-margin-top: 10px;
-}
-
-.skill-tag {
-background: rgba(255, 255, 255, 0.03);
-border: 1px solid rgba(255, 255, 255, 0.1);
-padding: 8px 16px;
-border-radius: 20px;
-font-size: 0.9rem;
-transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-background: rgba(255, 255, 255, 0.08);
-border-color: rgba(255, 255, 255, 0.3);
-transform: translateY(-2px);
-}
-
-/* Úprava pre svetlý režim */
-body.light-mode .skill-tag {
-background: rgba(0, 0, 0, 0.03);
-border-color: rgba(0, 0, 0, 0.1);
-color: #111111;
-}
-
-
-    
-body.light-mode .timeline-item:hover {
-border-left-color: #111111; /* V svetlom režime zasvieti na tmavo */
-}
-
-body.light-mode .skill-tag:hover {
-background: rgba(0, 0, 0, 0.08);
-border-color: rgba(0, 0, 0, 0.3);
-}
-/* Úprava farby pre svetlý režim */
-body.light-mode .timeline-employer {
-color: #636366; /* Tmavšia sivá pre čitateľnosť na bielom pozadí */
-}
-
-/* Odkazy pre certifikáty */
-.cert-link {
-display: inline-block;
-margin-top: 5px;
-color: #a78bfa;
-text-decoration: none;
-font-weight: 600;
-transition: color 0.2s ease;
-}
-.cert-link:hover {
-color: #c084fc;
-text-decoration: underline;
-}
-body.light-mode .cert-link {
-color: #6d28d9;
-}
-body.light-mode .cert-link:hover {
-color: #4c1d95;
-}
-
-/* Vyskakovacia hláška */
-.toast {
-position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%) translateY(100px);
-background: rgba(255, 255, 255, 0.9);
-color: #0f0f11;
-padding: 10px 25px;
-border-radius: 30px;
-font-weight: 600;
-font-size: 0.9rem;
-transition: transform 0.3s ease;
-opacity: 0;
-pointer-events: none;
-}
-.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-
-@media (max-width: 768px) {
-.top-section { flex-direction: column; text-align: center; }
-.btn { text-align: center; }
-}
-  #scrollProgressBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%; /* JavaScript ju bude dynamicky zväčšovať */
-    height: 4px; /* Hrúbka linky */
-    background: linear-gradient(90deg, #6c5ce7, #a29bfe); /* Pekný prechod z fialovej do svetlejšej */
-    z-index: 9999; /* Zabezpečí, že bude vždy navrchu nad všetkým */
-    transition: width 0.1s ease-out;
-    transition: width 0.1s ease-out;
-}
-
-  #scrollTopBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #ffffff;
-            color: #111111;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
-            z-index: 1000;
-        }
-
-        #scrollTopBtn:hover {
-            transform: translateY(-3px);
-            background-color: #e5e5e5;
-        }
-
- /* --- SEKCE ŽIVOTOPIS (ZAROVNANIE PRESNE NA STRED) --- */
-        .resume-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 50px;
-            margin-bottom: 30px;
-            padding: 0;
-            background: none !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-.download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(90deg, #6c5ce7, #a29bfe); /* Fialový gradient */
-    color: #ffffff !important;
-    border: none;
-    padding: 15px 35px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
-    transition: box-shadow 0.4s, transform 0.3s, filter 0.3s;
-}
-
-.download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(108, 92, 231, 0.5);
-    filter: brightness(1.1);
-}
-
-/* Základ pre LED pásy po bokoch (môžeš ich urobiť hrubšie, napr. 16px, aby bol efekt jasnejší) */
-.led-strip {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 16px; /* Nastav hrúbku podľa potreby */
-  z-index: 9999;
-  pointer-events: none;
-  
-  /* Základný 'glow' efekt s tvojimi fialovými farbami */
-  box-shadow: 
-    0 0 15px rgba(108, 92, 231, 0.7),
-    0 0 30px rgba(108, 92, 231, 0.5),
-    0 0 50px rgba(162, 155, 254, 0.4);
-}
-
-/* ĽAVÝ PÁS: Biela úplne vľavo, fialová vpravo (presne ako na obrázku) */
-.led-left {
-  left: 0;
-  /* Gradient zľava (biela) doprava (fialová) */
-  background: linear-gradient(90deg, #ffffff 0%, #6c5ce7 100%);
-  border-radius: 0 8px 8px 0; /* Zaoblenie vnútornej hranatosti */
-}
-
-/* PRAVÝ PÁS: Biela úplne vpravo, fialová vľavo (zrkadlovo otočené) */
-.led-right {
-  right: 0;
-  /* Gradient zprava (biela) doľava (fialová) */
-  background: linear-gradient(270deg, #ffffff 0%, #6c5ce7 100%);
-  border-radius: 8px 0 0 8px; /* Zaoblenie vnútornej hranatosti */
-}
-
-  /* Skryje LED pásy, keď je aktívny light-mode */
-body.light-mode .led-strip {
-  display: none;
-}
-
-a {
-    color: #FFFFFF;
-}
-    
-/* Animácia pulzovania svetla */
-@keyframes ledPulse {
-  0% {
-    opacity: 0.7;
-    box-shadow: 0 0 10px #6c5ce7, 0 0 20px #6c5ce7;
-  }
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 20px #6c5ce7, 0 0 40px #6c5ce7, 0 0 65px #6c5ce7;
-  }
-}
-
-/* --- RESPONZÍVNE MENU PRE MOBILY --- */
-@media (max-width: 600px) {
-    .top-bar {
-        gap: 8px;
-        padding-bottom: 10px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilipHreha-Web</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .top-bar-controls {
-        gap: 6px;
+    /* Body of the web */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.5;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .menu-btn, a.menu-btn {
-        height: 36px; /* Mierne zmenšená výška na mobiloch */
-        padding: 0 10px;
-        font-size: 1rem;
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: -1;
+      opacity: 0.8;
     }
-}
-</style>
+
+    body::before {
+      width: 600px;
+      height: 600px;
+      top: -100px;
+      left: -100px;
+      background: radial-gradient(circle, #8e8e93 0%, #e5e5ea 60%, transparent 100%);
+    }
+
+    body::after {
+      width: 700px;
+      height: 700px;
+      bottom: -150px;
+      right: -100px;
+      background: radial-gradient(circle, #aeaeb2 0%, #f2f2f7 70%, transparent 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Container for all sections */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Sections in the Container */
+    section {
+      padding: 35px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.015em;
+      color: #000;
+    }
+
+    /* Top menu */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+    }
+
+    /* Container for media in Top menu */
+    .nav-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+
+    .nav-left {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Center links */
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: #2c2c2e;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    /* Language button on right side */
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .lang-btn {
+      background: #000000;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 980px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #000;
+      transition: all 0.2s ease;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn:hover {
+      background: #2c2c2e;
+      border-color: #2c2c2e;
+    }
+
+    /* Main banner */
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    /* Grid for Main banner */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      color: #48484a;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-main {
+      background: #000;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 980px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .btn-main:hover {
+      background: #2c2c2e;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000000;
+      padding: 12px 24px;
+      border-radius: 980px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      transition: background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+    }
+
+    .hero-mockup {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(15px);
+      border-radius: 24px;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8e8e93;
+      font-size: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    /* SKLENÉ KARTY */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      margin-bottom: 24px;
+    }
+
+    /* SKILLS ROTUJÚCI SLIDER */
+    .skills-slider-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0;
+      /* Masmaskovanie okrajov do stratena */
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .skills-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: scrollSkills 25s linear infinite;
+    }
+
+    .skills-slider-container:hover .skills-track {
+      animation-play-state: paused; /* Pozastaví animáciu pri prechode myšou */
+    }
+
+    @keyframes scrollSkills {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%); /* Posunie o presnú polovicu, keďže kód je duplikovaný pre plynulú slučku */
+      }
+    }
+
+    .skill-card {
+      width: 260px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .skill-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .skill-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    .skill-info {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .skill-percentage {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6e6e73;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 980px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: #000;
+      border-radius: 980px;
+    }
+
+    /* TIMELINE ELEMENTY */
+    .timeline-item {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 28px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #000000;
+    }
+
+    .date {
+      font-size: 15px;
+      font-weight: 600;
+      color: #8e8e93;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .item-subtitle {
+      font-size: 17px;
+      font-weight: 600;
+      color: #6e6e73;
+      margin-bottom: 6px;
+    }
+
+    .item-desc {
+      font-size: 16px;
+      color: #3a3a3c;
+    }
+
+    .link-btn {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #000;
+      border-bottom: 1px solid #000;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: #000000;
+      color: #ffffff;
+      border-radius: 28px;
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-box h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .cta-box p {
+      color: #aeaeb2;
+      margin-bottom: 28px;
+      font-size: 16px;
+    }
+
+    .btn-cta-light {
+      background: #ffffff;
+      color: #000000;
+      padding: 12px 30px;
+      border-radius: 980px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-block;
+      transition: background 0.2s ease;
+    }
+
+    .btn-cta-light:hover {
+      background: #e5e5ea;
+    }
+
+    /* Responsive UI */
+    @media (max-width: 768px) {
+      .nav-container {
+        grid-template-columns: 1fr auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body class="lang-sk">
-  <div id="scrollProgressBar"></div>
+  <!-- Nav Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">Filip Hreha</div>
+      
+      <!-- Stredové menu -->
+      <ul class="nav-links">
+        <li><a href="#skusenosti" data-sk="Skúsenosti" data-en="Experience">Skúsenosti</a></li>
+        <li><a href="#vzdelanie" data-sk="Vzdelanie" data-en="Education">Vzdelanie</a></li>
+        <li><a href="#certifikaty" data-sk="Certifikáty" data-en="Certificates">Certifikáty</a></li>
+        <li><a href="#zrucnosti" data-sk="Zručnosti" data-en="Skills">Zručnosti</a></li>
+      </ul>
 
-<div class="container">
+      <!-- Prepínač jazyka vpravo -->
+      <div class="nav-right">
+        <button class="lang-btn" id="langToggle">EN</button>
+      </div>
+    </div>
+  </nav>
 
-<!-- LED pásy po bokoch -->
-<div class="led-strip led-left"></div>
-<div class="led-strip led-right"></div>
-  
-<nav class="top-bar">
-<a href="portfolio.html" target="_blank" class="menu-btn">
-<span class="sk">FOTO - PORTFÓLIO</span>
-<span class="en">PHOTO - PORTFOLIO</span>
-</a>
+  <div class="container">
 
-<div class="top-bar-controls">
-<button class="menu-btn" onclick="toggleLanguage()">
-<span class="sk">SK / EN</span>
-<span class="en">EN / SK</span>
-</button>
-
-<button class="menu-btn" onclick="toggleTheme()" id="themeBtn">
-<span class="dark-icon">🌙</span>
-<span class="light-icon" style="display: none;">☀️</span>
-</button>
-</div>
-</nav>
-
-<div class="top-section">
-<div class="profile-photo">
-<img src="profil.jpg" alt="Filip Hreha">
-</div>
-
-<div class="top-info">
-<h1>Filip Hreha</h1>
-
-<div class="contact-buttons">
-<a href="mailto:filiphreha6@gmail.com" class="btn" onclick="copyToClipboard('filiphreha6@gmail.com', event)">
-<span class="btn-title">Mail</span>
-<span class="btn-sub">filiphreha6@gmail.com</span>
-</a>
-
-<a href="tel:+421900000000" class="btn" onclick="copyToClipboard('+421 944 459 344', event)">
-<span class="btn-title">
-<span class="sk">Telefón</span>
-<span class="en">Phone</span>
-</span>
-<span class="btn-sub">+421 944 459 344</span>
-</a>
-
-<a href="https://www.linkedin.com/in/filip-hreha-691585413/" target="_blank" class="btn">
-<span class="btn-title">LinkedIn</span>
-</a>
-</div>
-</div>
-</div>
-
-<section>
-<h2>
-<span class="sk">O mne</span>
-<span class="en">About Me</span>
-</h2>
-<p>
-<span class="sk">Študent automobilovej mechatroniky na FEI STU, ktorý kombinuje exaktné technické vzdelanie s digitálnymi a kreatívnymi zručnosťami. Vyznačujem sa analytickým myslením, zodpovedným prístupom k úlohám a zmyslom pre organizáciu. Taktiež sa dokážem rýchlo učiť a adaptovať na nové technológie. Hľadám prostredie, kde môžem rásť a prispieť svojou flexibilitou. 
-
-</span>
-<span class="en">An Automotive Mechatronics student at FEI STU who combines an exact technical education with digital and creative skills. I have analytical thinking, a responsible approach to tasks, and a sense of organization. I can also learn quickly and adapt to new technologies. I am looking for an environment where I can grow and contribute with my flexibility.</span>
-</p>
-</section>
-
-<section>
-<h2>
-<span class="sk">Vzdelanie</span>
-<span class="en">Education</span>
-</h2>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">2022 - Súčasnosť</span>
-<span class="en">2022 - Present</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Fakulta elektrotechniky a informatiky STU v Bratislave</span>
-<span class="en">Faculty of Electrical Engineering and Information Technology STU in Bratislava</span>
-</div>
-<p class="timeline-desc">
-<span class="sk">Inteligentné technológie a automobilová mechatronika</span>
-<span class="en">Intelligent Technologies and Automotive Mechatronics</span>
-</p>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">9.2019 - 5.2023</span>
-<span class="en">9.2019 - 5.2023</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Stredná priemyselná škola strojnícka, Duklianska 1, Prešov</span>
-<span class="en">Secondary School of Mechanical Engineering, Duklianska 1, Prešov</span>
-</div>
-<p class="timeline-desc">
-<span class="sk">Mechatronika</span>
-<span class="en">Mechatronics</span>
-</p>
-</div>
-</section>
-
-<section>
-<h2>
-<span class="sk">Pracovné skúsenosti</span>
-<span class="en">Work Experience</span>
-</h2>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">7.2025</span>
-<span class="en">7.2025</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Montážny technik</span>
-<span class="en">Assembly Technician</span>
-</div>
-<div class="timeline-employer">
-STEELMONT S.R.O.
-</div>
-<p class="timeline-desc">
-<span class="sk">Konštrukčné a montážne práce, kontrola kvality a presnosti zmontovaných dielov, úprava, vŕtanie a rezanie materiálov, dodržiavanie technických postupov a BOZP na pracovisku</span>
-<span class="en">Performing construction and assembly work, inspecting the quality and precision of assembled components, adhering to technical procedures and occupational health and safety regulations, modifying, drilling, and cutting materials</span>
-</p>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">2022 - 2025</span>
-<span class="en">2022 - 2025</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Správca webových stránok</span>
-<span class="en">Website Administrator</span>
-</div>
-<div class="timeline-employer">
-Doglife
-</div>
-<p class="timeline-desc">
-<span class="sk">Komplexná správa, údržba, pravidelná aktualizácia webových stránok, tvorba grafického dizajnu a vizuálnych materiálov</span>
-<span class="en">Website administration, maintenance, regular updates, creating graphic design and visual materials</span>
-</p>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">12.2023 - 6.2026</span>
-<span class="en">12.2023 - 6.2026</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Asistent predaja</span>
-<span class="en">Sales Assistant</span>
-</div>
-<div class="timeline-employer">
-Neposlušný psík
-</div>
-<p class="timeline-desc">
-<span class="sk">Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom, pravidelné dopĺňanie tovaru a asistencia pri inventúrach</span>
-<span class="en">Selling products, communicating with customers, operating the POS system, regular restocking of goods, and assisting with inventory checks.</span>
-</p>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">6.2026 - 7.2026</span>
-<span class="en">6.2026 - 7.2026</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Skladník</span>
-<span class="en">Warehouse Operative</span>
-</div>
-<div class="timeline-employer">
-Neposlušný psík
-</div>
-<p class="timeline-desc">
-<span class="sk">Príjem tovaru, evidencia a výdaj tovaru, kontrola dodacích listov, presné vychystávanie objednávok, manipulácia so skladovými zásobami, udržiavanie poriadku v skladových priestoroch</span>
-<span class="en">Receiving goods, recording and dispatching goods, checking delivery notes, precise order picking, handling warehouse stock, maintaining order in the warehouse facilities</span>
-</p>
-</div>
-</section>
-
-<section>
-<h2>
-<span class="sk">Certifikáty</span>
-<span class="en">Certifications</span>
-</h2>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">6.6.2023</span>
-<span class="en">6.6.2023</span>
-</span>
-<div class="timeline-title">
-<span class="sk">§21 Elektrotechnik</span>
-<span class="en">§21 Electrotechnician</span>
-</div>
-<p class="timeline-desc">
-<span class="sk">Stredná priemyselná škola strojnícka, Duklianska 1, Prešov</span>
-<span class="en">Secondary School of Mechanical Engineering, Duklianska 1, Prešov</span>
-</p>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">16.07.2025</span>
-<span class="en">16.07.2025</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Google AI Essentials</span>
-<span class="en">Google AI Essentials</span>
-</div>
-<a href="https://coursera.org/verify/specialization/GHWEGGEWGFLR" target="_blank" class="cert-link">
-<span class="sk">Overiť certifikát</span>
-<span class="en">Verify certificate</span>
-</a>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">17.07.2025</span>
-<span class="en">17.07.2025</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Google Prompting Essentials</span>
-<span class="en">Google Prompting Essentials</span>
-</div>
-<a href="https://www.coursera.org/account/accomplishments/specialization/SAWRCWJHYDNN" target="_blank" class="cert-link">
-<span class="sk">Overiť certifikát</span>
-<span class="en">Verify certificate</span>
-</a>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">13.2.2026 - 13.2.2027</span>
-<span class="en">13.2.2026 - 13.2.2027</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Certifikácia Google Ads pre Obsahovú sieť</span>
-<span class="en">Google Ads Display</span>
-</div>
-<a href="https://skillshop.credential.net/d22fb1de-d909-4b4a-8350-45937b85b3f1#acc.13wMDojr" target="_blank" class="cert-link">
-<span class="sk">Overiť certifikát</span>
-<span class="en">Verify certificate</span>
-</a>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">16.2.2026 - 16.2.2027</span>
-<span class="en">16.2.2026 - 16.2.2027</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Certifikácia Google Ads - Kreatíva</span>
-<span class="en">Google Ads Creative</span>
-</div>
-<a href="https://skillshop.credential.net/184a60f3-71c0-4cd0-94ee-b5f5d1d4c952#acc.c4JD73SE" target="_blank" class="cert-link">
-<span class="sk">Overiť certifikát</span>
-<span class="en">Verify certificate</span>
-</a>
-</div>
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">17.2.2026 - 17.2.2027</span>
-<span class="en">17.2.2026 - 17.2.2027</span>
-</span>
-<div class="timeline-title">
-<span class="sk">Certifikácia Google Ads pre videoreklamu</span>
-<span class="en">Google Ads Video</span>
-</div>
-<a href="https://skillshop.credential.net/4a9976f7-0242-4d6d-9221-eb37db421629#acc.ZhTimdBU" target="_blank" class="cert-link">
-<span class="sk">Overiť certifikát</span>
-<span class="en">Verify certificate</span>
-</a>
-</div>
-</section>
-
-<section>
-<h2>
-<span class="sk">Zručnosti</span>
-<span class="en">Skills</span>
-</h2>
-<div class="skills-container">
-<span class="skill-tag">Adobe Photoshop - 90%</span>
-<span class="skill-tag">Adobe Lightroom - 70%</span>
-<span class="skill-tag">Adobe Premiere Pro - 85%</span>
-<span class="skill-tag">HTML & CSS - 50%</span>
-<span class="skill-tag">AutoCAD - 50%</span>
-<span class="skill-tag">SolidEdge - 80%</span>
-<span class="skill-tag">MATLAB - 50%</span>
-<span class="skill-tag">C++ - 50%</span>
-
-<span class="skill-tag">
-<span class="sk">Fotografia</span>
-<span class="en">Photography</span>
-</span>
-<span class="skill-tag">
-<span class="sk">Grafický dizajn</span>
-<span class="en">Graphic Design</span>
-</span>
-<span class="skill-tag">
-<span class="sk">Správa webu</span>
-<span class="en">Web Administration</span>
-</span>
-<span class="skill-tag">
-<span class="sk">Práca v kolektíve</span>
-<span class="en">Teamwork</span>
-</span>
-</div>
-</section>
-
-<section>
-<h2>
-<span class="sk">Ocenenia</span>
-<span class="en">Awards & Achievements</span>
-</h2>
-
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">14.4.2023</span>
-<span class="en">14.4.2023</span>
-</span>
-
-<div class="timeline-title">
-<span class="sk">Víťaz - Siemens Young Generation Award</span>
-<span class="en">Winner - Siemens Young Generation Award</span>
-</div>
-
-<div class="timeline-employer">
-<span class="sk">Siemens</span>
-<span class="en">Siemens</span>
-</div>
-
-<p class="timeline-desc">
-<span class="sk">Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty (PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch.</span>
-<span class="en">A nationwide high school competition focused on problem-solving using programmable logic controller (PLC) programming languages, with an emphasis on practical applications in industrial automation. Organized annually, with a changing professional theme reflecting current trends in engineering and control systems.</span>
-</p>
-<a href="https://www.atpjournal.sk/rubriky/podujatia/vitazom-syga-sa-stal-projekt-testovacieho-modelu-bateriovych-clankov.html?page_id=38278" target="_blank" class="cert-link">
-<span class="sk">Článok v médiách</span>
-<span class="en">Award article</span>
-</a>
-</div>
-</section>
-
-<section>
-<h2>
-<span class="sk">Organizácie</span>
-<span class="en">Organizations</span>
-</h2>
-
-<div class="timeline-item">
-<span class="timeline-date">
-<span class="sk">2025 - Súčasnosť</span>
-<span class="en">2025 - Present</span>
-</span>
-
-<div class="timeline-title">
-<span class="sk">Študentský parlament elektrotechnikov a informatikov</span>
-<span class="en">Student Parliament</span>
-</div>
-
-<div class="timeline-employer">
-<span class="sk">Člen PR komisie</span>
-<span class="en">PR Committee Member</span>
-</div>
-
-<p class="timeline-desc">
-<span class="sk">Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov</span>
-<span class="en">Active participation in parliament operations, organizing school and extracurricular events, contributing to the improvement of the school environment, website management, event photography, creating graphic materials</span>
-</p>
-<a href="https://www.speai.sk" target="_blank" class="cert-link">
-<span class="sk">Odkaz na web</span>
-<span class="en">Official website</span>
-</a>
-</div>
-</section>
-</div>
-<!-- TLAČIDLO NA STIAHNUTIE ŽIVOTOPISU -->
-        <div class="resume-section">
-        <div class="resume-container">
-            <a href="FilipHreha_CV.pdf" download class="download-btn"> 
-                <span class="sk">Stiahnuť životopis</span>
-                <span class="en">Download Resume</span>
-            </a>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 data-sk="Filip Hreha" data-en="Filip Hreha">Filip Hreha</h1>
+          <p data-sk="Študent automobilovej mechatroniky na FEI STU, ktorý kombinuje exaktné technické vzdelanie s digitálnymi a kreatívnymi zručnosťami. Vyznačujem sa analytickým myslením, zodpovedným prístupom k úlohám a zmyslom pre organizáciu. Taktiež sa dokážem rýchlo učiť a adaptovať na nové technológie. Hľadám prostredie, kde môžem rásť a prispieť svojou flexibilitou." 
+             data-en="An Automotive Mechatronics student at FEI STU who combines an exact technical education with digital and creative skills. I have analytical thinking, a responsible approach to tasks, and a sense of organization. I can also learn quickly and adapt to new technologies. I am looking for an environment where I can grow and contribute with my flexibility.">
+            Študent automobilovej mechatroniky na FEI STU, ktorý kombinuje exaktné technické vzdelanie s digitálnymi a kreatívnymi zručnosťami. Vyznačujem sa analytickým myslením, zodpovedným prístupom k úlohám a zmyslom pre organizáciu. Taktiež sa dokážem rýchlo učiť a adaptovať na nové technológie. Hľadám prostredie, kde môžem rásť a prispieť svojou flexibilitou.
+          </p>
+          <div class="hero-buttons">
+            <a href="#kontakt" class="btn-main" data-sk="Kontakt" data-en="Contact">Kontakt</a>
+            <!-- Tlačidlo pripravené na stiahnutie CV -->
+            <a href="FilipHreha_CV.pdf" download="FilipHreha_CV.pdf" class="btn-secondary" data-sk="Stiahnuť CV" data-en="Download CV">Stiahnuť CV</a>
+          </div>
         </div>
-<div id="toast" class="toast">
-<span class="sk">Skopírované!</span>
-<span class="en">Copied!</span>
-</div>
-<button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
-<script>
-// Funkcia na skopírovanie textu do schránky
-function copyToClipboard(text, event) {
-event.preventDefault(); // Zabraňuje skoku na vrch stránky
+        <div class="hero-mockup">
+          <img src="profil.jpg">
+        </div>
+      </div>
+    </section>
 
-navigator.clipboard.writeText(text).then(() => {
-const toast = document.getElementById('toast');
-toast.classList.add('show');
-setTimeout(() => { toast.classList.remove('show'); }, 2000);
-});
-}
+    <!-- PRACOVNÉ SKÚSENOSTI -->
+    <section id="skusenosti">
+      <h2 class="section-title" data-sk="Pracovné skúsenosti" data-en="Work Experience">Pracovné skúsenosti</h2>
+      <div class="glass-card">
 
-// Funkcia na prepínanie jazyka
-function toggleLanguage() {
-const body = document.body;
-if (body.classList.contains('lang-sk')) {
-body.classList.remove('lang-sk');
-body.classList.add('lang-en');
-} else {
-body.classList.remove('lang-en');
-body.classList.add('lang-sk');
-}
-}
+        <div class="timeline-item">
+          <div class="date">7.2025</div>
+          <div class="item-title" data-sk="Montážny technik" data-en="Assembly Technician">Montážny technik</div>
+          <div class="item-subtitle">STEELMONT S.R.O.</div>
+          <p class="item-desc" data-sk="Konštrukčné a montážne práce, kontrola kvality a presnosti zmontovaných dielov, úprava, vŕtanie a rezanie materiálov, dodržiavanie technických postupov a BOZP na pracovisku" data-en="Performing construction and assembly work, inspecting the quality and precision of assembled components, adhering to technical procedures and occupational health and safety regulations, modifying, drilling, and cutting materials">Konštrukčné a montážne práce, kontrola kvality a presnosti zmontovaných dielov, úprava, vŕtanie a rezanie materiálov, dodržiavanie technických postupov a BOZP na pracovisku</p>
+        </div>
 
-// Funkcia na prepínanie Light / Dark módu (Mesiac / Slnko)
-function toggleTheme() {
-const body = document.body;
-const isLightMode = body.classList.toggle('light-mode');
+        <div class="timeline-item">
+          <div class="date">2022 - 2025</div>
+          <div class="item-title" data-sk="Správca webových stránok" data-en="Web Administrator">Správca webových stránok</div>
+          <div class="item-subtitle">Doglife s.r.o.</div>
+          <p class="item-desc" data-sk="Komplexná správa, údržba, pravidelná aktualizácia webových stránok, tvorba grafického dizajnu a vizuálnych materiálov" data-en="Website administration, maintenance, regular updates, creating graphic design and visual materials">Komplexná správa, údržba, pravidelná aktualizácia webových stránok, tvorba grafického dizajnu a vizuálnych materiálov</p>
+        </div>
 
-const darkIcon = document.querySelector('.dark-icon');
-const lightIcon = document.querySelector('.light-icon');
+        <div class="timeline-item">
+          <div class="date">12.2023 - 6.2026</div>
+          <div class="item-title" data-sk="Asistent predaja" data-en="Sales Assistant">Asistent predaja</div>
+          <div class="item-subtitle">Neposlušný psík</div>
+          <p class="item-desc" data-sk="Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom, pravidelné dopĺňanie tovaru a asistencia pri inventúrach" data-en="Selling products, communicating with customers, operating the POS system, regular restocking of goods, and assisting with inventory checks.">Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom, pravidelné dopĺňanie tovaru a asistencia pri inventúrach</p>
+        </div>
 
-if (isLightMode) {
-darkIcon.style.display = 'none';
-lightIcon.style.display = 'inline';
-} else {
-darkIcon.style.display = 'inline';
-lightIcon.style.display = 'none';
-}
-}
-  window.addEventListener("scroll", () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
+        <div class="timeline-item">
+          <div class="date">6.2026 - 7.2026</div>
+          <div class="item-title" data-sk="Skladník" data-en="Warehouse Operative">Skladník</div>
+          <div class="item-subtitle">Neposlušný psík</div>
+          <p class="item-desc" data-sk="Príjem tovaru, evidencia a výdaj tovaru, kontrola dodacích listov, presné vychystávanie objednávok, manipulácia so skladovými zásobami, udržiavanie poriadku v skladových priestoroch" data-en="Receiving goods, recording and dispatching goods, checking delivery notes, precise order picking, handling warehouse stock, maintaining order in the warehouse facilities">Predaj tovaru, komunikácia so zákazníkmi, práca s pokladničným systémom a dopĺňanie tovaru.</p>
+        </div>
 
-    document.getElementById("scrollProgressBar").style.width = scrolled + "%";
-});
+      </div>
+    </section>
 
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.style.opacity = "1";
-                scrollTopBtn.style.visibility = "visible";
-            } else {
-                scrollTopBtn.style.opacity = "0";
-                scrollTopBtn.style.visibility = "hidden";
-            }
-        };
+    <!-- VZDELANIE -->
+    <section id="vzdelanie">
+      <h2 class="section-title" data-sk="Vzdelanie" data-en="Education">Vzdelanie</h2>
+      <div class="glass-card">
+        
+        <div class="timeline-item">
+          <div class="date" data-sk="2022 - Súčasnosť" data-en="2022 - Present">2022 - Súčasnosť</div>
+          <div class="item-title">Fakulta elektrotechniky a informatiky STU v Bratislave</div>
+          <div class="item-subtitle" data-sk="Inteligentné technológie a automobilová mechatronika" data-en="Intelligent Technologies and Automotive Mechatronics">Inteligentné technológie a automobilová mechatronika</div>
+        </div>
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-</script>
+        <div class="timeline-item">
+          <div class="date">9.2019 - 5.2023</div>
+          <div class="item-title">Stredná priemyselná škola strojnícka, Duklianska 1, Prešov</div>
+          <div class="item-subtitle" data-sk="Mechatronika" data-en="Mechatronics">Mechatronika</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFIKÁTY A OCENENIA -->
+    <section id="certifikaty">
+      <h2 class="section-title" data-sk="Certifikáty & Ocenenia" data-en="Certificates & Awards">Certifikáty & Ocenenia</h2>
+      <div class="glass-card">
+
+        <div class="timeline-item">
+          <div class="date">14.4.2023</div>
+          <div class="item-title" data-sk="Víťaz - Siemens Young Generation Award" data-en="Winner - Siemens Young Generation Award">Víťaz - Siemens Young Generation Award</div>
+          <div class="item-subtitle">Siemens</div>
+          <p class="item-desc" data-sk="Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty (PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch." data-en="A nationwide high school competition focused on problem-solving using programmable logic controller (PLC) programming languages, with an emphasis on practical applications in industrial automation. Organized annually, with a changing professional theme reflecting current trends in engineering and control systems.">Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty (PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch.</p>
+          <a href="https://www.atpjournal.sk/rubriky/podujatia/vitazom-syga-sa-stal-projekt-testovacieho-modelu-bateriovych-clankov.html?page_id=38278" class="link-btn" data-sk="Článok v médiách" data-en="Award article">Článok v médiách</a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">6.6.2023</div>
+          <div class="item-title">§21 Elektrotechník</div>
+          <div class="item-subtitle">SPŠS Prešov</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">16.07.2025</div>
+          <div class="item-title">Google AI Essentials</div>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/GHWEGGEWGFLR" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Overiť certifikát</a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">17.07.2025</div>
+          <div class="item-title">Google Prompting Essentials</div>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/SAWRCWJHYDNN" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Overiť certifikát</a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">13.2.2026 - 13.2.2027</div>
+          <div class="item-title" data-sk="Certifikácia Google Ads pre Obsahovú sieť" data-en="Google Ads Display">Certifikácia Google Ads pre Obsahovú sieť</div>
+          <a href="https://skillshop.credential.net/d22fb1de-d909-4b4a-8350-45937b85b3f1#acc.13wMDojr" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Článok v médiách</a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">16.2.2026 - 16.2.2027</div>
+          <div class="item-title" data-sk="Certifikácia Google Ads - Kreatíva" data-en="Google Ads Creative">Certifikácia Google Ads - Kreatíva</div>
+          <a href="https://skillshop.credential.net/184a60f3-71c0-4cd0-94ee-b5f5d1d4c952#acc.c4JD73SE" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Článok v médiách</a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">17.2.2026 - 17.2.2027</div>
+          <div class="item-title" data-sk="Certifikácia Google Ads pre videoreklamu" data-en="Google Ads Video">Certifikácia Google Ads pre videoreklamu</div>
+          <a href="https://skillshop.credential.net/4a9976f7-0242-4d6d-9221-eb37db421629#acc.ZhTimdBU" class="link-btn" data-sk="Overiť certifikát" data-en="Verify certificate">Článok v médiách</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZRUČNOSTI (ROTUJÚCI SLIDER) -->
+    <section id="zrucnosti">
+      <h2 class="section-title" data-sk="Zručnosti" data-en="Skills">Zručnosti</h2>
+      <div class="skills-slider-container">
+        <div class="skills-track">
+          
+          <!-- SADA KARIET (1. KRÁT) -->
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">Ps</div>
+              <div class="skill-info">
+                <span class="skill-title">Adobe Photoshop</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">Pr</div>
+              <div class="skill-info">
+                <span class="skill-title">Adobe Premiere Pro</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">SE</div>
+              <div class="skill-info">
+                <span class="skill-title">SolidEdge</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">Lr</div>
+              <div class="skill-info">
+                <span class="skill-title">Adobe Lightroom</span>
+                <span class="skill-percentage">70%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 70%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">&lt;&gt;</div>
+              <div class="skill-info">
+                <span class="skill-title">HTML & CSS</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">CAD</div>
+              <div class="skill-info">
+                <span class="skill-title">AutoCAD</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">M</div>
+              <div class="skill-info">
+                <span class="skill-title">MATLAB</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">C++</div>
+              <div class="skill-info">
+                <span class="skill-title">C++</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <!-- DUPLIKOVANÁ SADA KARIET (PRE PLYNULÚ NEKONEČNÚ SMYČKU) -->
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/ps.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">Adobe Photoshop</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/pr.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">Adobe Premiere Pro</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/solidedge.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">SolidEdge</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/lr.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">Adobe Lightroom</span>
+                <span class="skill-percentage">70%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 70%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/html.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">HTML & CSS</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/autocad.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">AutoCAD</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/matlab.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">MATLAB</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-icon">
+                <img src="icons/cpp.png">
+              </div>
+              <div class="skill-info">
+                <span class="skill-title">C++</span>
+                <span class="skill-percentage">50%</span>
+              </div>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="organizacie">
+      <h2 class="section-title" data-sk="Organizácie" data-en="Organizations">Organizácie</h2>
+      <div class="glass-card">
+
+        <div class="timeline-item">
+          <div class="date" data-sk="2025 - Súčasnosť" data-en="2025 - Present">2025 - Súčasnosť</div>
+          <div class="item-title" data-sk="Študentský parlament elektrotechnikov a informatikov" data-en="Student Parliament">Študentský parlament elektrotechnikov a informatikov</div>
+          <div class="item-subtitle" data-sk="Člen PR komisie" data-en="PR Committee Member">Člen PR komisie</div>
+          <p class="item-desc" data-sk="Aktívna účasť na chode parlamentu, organizácia školských a mimoškolských podujatí, podieľanie sa na zlepšovaní školského prostredia, správa webovej stránky, fotografovanie podujatí, tvorba grafických materiálov" data-en="Active participation in parliament operations, organizing school and extracurricular events, contributing to the improvement of the school environment, website management, event photography, creating graphic materials">Celoslovenská súťaž stredných škôl zameraná na riešenie úloh v programovacom jazyku pre programovateľné logické automaty (PLC), s dôrazom na praktické aplikácie v oblasti priemyselnej automatizácie. Každoročne organizovaná s meniacou sa odbornou témou reflektujúcou aktuálne trendy v technike a riadiacich systémoch.</p>
+          <a href="https://www.atpjournal.sk/rubriky/podujatia/vitazom-syga-sa-stal-projekt-testovacieho-modelu-bateriovych-clankov.html?page_id=38278" class="link-btn" data-sk="Odkaz na web" data-en="Official website">Odkaz na web</a>
+        </div>
+      </div>
+      </section>
+
+    <!-- CTA BANNER -->
+    <section id="kontakt">
+      <div class="cta-box">
+        <h2 data-sk="Kontakt" data-en="Contact">Kontakt</h2>
+        <p data-sk="Tel.č.: +421 944 459 344" data-en="Phone num.: +421 944 459 344">Tel.č.: +421 944 459 344</p>
+        <p>E-mail: filiphreha6@gmail.com</p>
+        <a href="https://www.linkedin.com/in/filip-hreha-691585413/" class="btn-cta-light" data-sk="LinkedIn">LinkedIn</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JS pre prepínanie jazyka -->
+  <script>
+    const langBtn = document.getElementById('langToggle');
+    let currentLang = 'sk';
+
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'sk' ? 'en' : 'sk';
+      langBtn.textContent = currentLang === 'sk' ? 'EN' : 'SK';
+
+      document.querySelectorAll('[data-sk][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
+      });
+    });
+  </script>
 
 </body>
 </html>
