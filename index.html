@@ -465,7 +465,20 @@
       }
 
       .hero-buttons {
-        justify-content: center;
+        flex-direction: row;       /* Tlačidlá zostanú vedľa seba */
+        flex-wrap: nowrap;         /* Neprejdú do nového riadku */
+        width: 100%;
+        max-width: 100%;
+        gap: 8px;                  /* Menšia medzera medzi nimi */
+      }
+
+      .btn-main,
+      .btn-secondary {
+        flex: 1;                   /* Všetky tlačidlá budú rovnako široké */
+        padding: 10px 8px;         /* Menšie vnútorné odsadenie */
+        font-size: 12px;           /* O niečo menšie písmo */
+        white-space: nowrap;       /* Zabráni zalamovaniu textu na 2 riadky */
+        text-align: center;
       }
     }
   </style>
