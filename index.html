@@ -481,6 +481,23 @@
         text-align: center;
       }
     }
+
+
+    /* Východiskový skrytý stav pre prvky pri skrolovaní */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Stav po doskrolovaní */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    
   </style>
 </head>
 <body>
@@ -864,6 +881,35 @@
       });
     });
   </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Vyberieme všetky sekcie a karty, ktoré chceme animovať
+  const elementsToAnimate = document.querySelectorAll("section, .glass-card, .timeline-item, .skill-category");
+
+  // Pridáme im triedu .reveal pre skrytie
+  elementsToAnimate.forEach(el => el.classList.add("reveal"));
+
+  // Konfigurácia IntersectionObserver-a
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px 0px -50px 0px", // Animácia sa spustí o niečo skôr, než prvok dobehne na úplný spdok obrazovky
+    threshold: 0.15                  // Kedy sa má animácia spustiť (pri zobrazení 15% prvku)
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Animácia prebehne iba raz
+      }
+    });
+  }, observerOptions);
+
+  // Sledovanie prvkov
+  elementsToAnimate.forEach(el => observer.observe(el));
+});
+</script>
 
 </body>
 </html>
